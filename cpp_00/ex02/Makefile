@@ -1,4 +1,4 @@
-NAME		=		phonebook
+NAME		=		account
 
 #######################
 #	DIR
@@ -14,9 +14,8 @@ BUILD_DIR	=		.build/
 #	FILES
 #######################
 
-SRC			=		main.cpp		\
-					PhoneBook.cpp	\
-					Contact.cpp		\
+SRC			=		tests.cpp	\
+					Account.cpp	\
 
 OBJ			=		$(addprefix $(BUILD_DIR), $(SRC:.cpp=.o))
 
