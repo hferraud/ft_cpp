@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "PhoneBook.hpp"
-#include <string>
 #include <iostream>
 
 int main(void)

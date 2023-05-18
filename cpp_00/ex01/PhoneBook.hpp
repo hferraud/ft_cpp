@@ -23,8 +23,12 @@ private:
 	Contact contact[MAX_CONTACT];
 	int		total_contact;
 
+	void	displaySearch();
+	void	displaySearchRow(int index);
+
 public:
 	PhoneBook();
+
 	void addContact();
 	void search();
 };

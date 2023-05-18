@@ -11,11 +11,9 @@
 /* ************************************************************************** */
 #include "PhoneBook.hpp"
 #include <iostream>
-#include <string>
+#include <sstream>
 #include <iomanip>
 
-static void displaySearch(Contact contact[MAX_CONTACT], int total_contact);
-static void displaySearchRow(Contact contact, int index);
 static void displaySearchCell(std::string cell);
 
 PhoneBook::PhoneBook () {
@@ -46,27 +44,29 @@ void PhoneBook::addContact () {
 }
 
 void PhoneBook::search() {
-	int	index;
+	int			index;
+	std::string	input;
 
-	displaySearch(this->contact, this->total_contact);
+	displaySearch();
 	std::cout << "Enter the index to display more information: ";
-	std::cin >> index;
+	std::cin >> input;
+	std::stringstream(input) >> index;
 	if (index >= this->total_contact || index >= MAX_CONTACT || index < 0)
 		std::cout << "Index is out of bound" << std::endl;
 	else
 		this->contact[index].toString();
 }
 
-static void displaySearch(Contact contact[MAX_CONTACT], int total_contact) {
-	for (int i = 0; i < total_contact && i < MAX_CONTACT; i++)
-		displaySearchRow(contact[i], i);
+void PhoneBook::displaySearch() {
+	for (int i = 0; i < this->total_contact && i < MAX_CONTACT; i++)
+		displaySearchRow(i);
 }
 
-static void displaySearchRow(Contact contact, int index) {
+void PhoneBook::displaySearchRow(int index) {
 	std::cout << std::setw(10) << index;
-	displaySearchCell(contact.getFirstName());
-	displaySearchCell(contact.getLastName());
-	displaySearchCell(contact.getNickname());
+	displaySearchCell(this->contact[index].getFirstName());
+	displaySearchCell(this->contact[index].getLastName());
+	displaySearchCell(this->contact[index].getNickname());
 	std::cout << std::endl;
 }
 
