@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "Zombie.hpp"
-#include <string>
 
-Zombie *newZombie(std::string name)
-{
+Zombie *newZombie(std::string name) {
+	Zombie *z = new Zombie(name);
 
-	return (zombie);
+	return (z);
 }
