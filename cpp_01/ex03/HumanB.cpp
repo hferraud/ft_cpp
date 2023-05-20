@@ -12,15 +12,25 @@
 #include "HumanB.hpp"
 #include <iostream>
 
-HumanB::HumanB (std::string name) : weapon("fists") {
+HumanB::HumanB (std::string name) : weapon(NULL) {
 	this->name = name;
 }
 
-void HumanB::setWeapon (Weapon weapon) {
-	this->weapon = weapon;
+Weapon &HumanB::getDefaultWeapon() {
+	static Weapon defWeapon = Weapon("fists");
+
+	return (defWeapon);
+}
+
+void HumanB::setWeapon (Weapon &weapon) {
+	this->weapon = &weapon;
 }
 
 void HumanB::attack () {
-	std::cout << name << " attacks with their " << weapon.getType();
+	std::cout << name << " attacks with their ";
+	if (weapon == NULL)
+		std::cout << "fists";
+	else
+		std::cout << weapon->getType();
 	std::cout << std::endl;
 }

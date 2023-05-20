@@ -21,7 +21,7 @@ SRC			=		main.cpp	\
 
 OBJ			=		$(addprefix $(BUILD_DIR), $(SRC:.cpp=.o))
 
-DEPS		=		$(addprefix $(BUILD_DIR), $(OBJ:.o=.d))
+DEPS		=		$(addprefix $(BUILD_DIR), $(SRC:.cpp=.d))
 
 #######################
 #	FLAGS
@@ -44,6 +44,11 @@ DFLAGS		=		-MMD -MP
 .PHONY:				all
 all:				$(NAME)
 
+-include			$(DEPS)
+
+$(NAME):			$(OBJ)
+					$(CXX) $(CFLAGS) $(DFLAGS) $(IFLAGS) $^ -o $@
+
 .PHONY:				clean
 clean:
 					$(RM) $(OBJ) $(DEPS)
@@ -55,15 +60,6 @@ fclean:
 .PHONY:				re
 re:					fclean
 					$(MAKE)
-
-################
-#	EXECUTABLES
-################
-
--include			$(DEPS)
-
-$(NAME):			$(OBJ)
-					$(CXX) $(CFLAGS) $(DFLAGS) $(IFLAGS) $^ -o $@
 
 ##################
 #	OBJECTS FILES
