@@ -12,4 +12,21 @@
 #ifndef FT_CPP_HUMANB_HPP
 # define FT_CPP_HUMANB_HPP
 
+#include "Weapon.hpp"
+#include <string>
+
+class HumanB {
+
+public:
+	HumanB(std::string name);
+
+	void setWeapon(Weapon weapon);
+	void attack();
+
+private:
+	std::string	name;
+	Weapon		weapon;
+
+};
+
 #endif

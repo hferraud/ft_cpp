@@ -1,4 +1,4 @@
-NAME		=		brain
+NAME		=		violence
 
 #######################
 #	DIR
@@ -15,6 +15,9 @@ BUILD_DIR	=		.build/
 #######################
 
 SRC			=		main.cpp	\
+					Weapon.cpp	\
+					HumanA.cpp	\
+					HumanB.cpp	\
 
 OBJ			=		$(addprefix $(BUILD_DIR), $(SRC:.cpp=.o))
 
