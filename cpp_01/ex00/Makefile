@@ -21,7 +21,7 @@ SRC			=		main.cpp	\
 
 OBJ			=		$(addprefix $(BUILD_DIR), $(SRC:.cpp=.o))
 
-DEPS		=		$(addprefix $(BUILD_DIR), $(OBJ:.o=.d))
+DEPS		=		$(addprefix $(BUILD_DIR), $(SRC:.cpp=.d))
 
 #######################
 #	FLAGS
