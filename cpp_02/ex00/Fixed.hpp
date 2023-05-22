@@ -16,16 +16,18 @@ class Fixed {
 
 public:
 	Fixed();
-	Fixed(Fixed &);
+	Fixed(Fixed &other);
 	~Fixed();
-	Fixed operator= (const Fixed &);
-	int getRawBits(void) const;
+
+	Fixed &operator= (const Fixed &other);
+
+	int getRawBits(void);
 	void setRawBits(int);
 
 private:
-	int rawBits;
+	int _rawBits;
 
-	static const int fractional = 8;
+	static const int _fractional = 8;
 };
 
 #endif
