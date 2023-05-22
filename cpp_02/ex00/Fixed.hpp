@@ -19,13 +19,13 @@ public:
 	Fixed(Fixed &);
 	~Fixed();
 	Fixed operator= (const Fixed &);
-	int getRawBits(void);
+	int getRawBits(void) const;
 	void setRawBits(int);
 
 private:
 	int rawBits;
 
-	static const int fractional;
+	static const int fractional = 8;
 };
 
 #endif

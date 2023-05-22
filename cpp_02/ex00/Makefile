@@ -15,7 +15,7 @@ BUILD_DIR	=		.build/
 #######################
 
 SRC			=		main.cpp	\
-					Harl.cpp	\
+					Fixed.cpp	\
 
 OBJ			=		$(addprefix $(BUILD_DIR), $(SRC:.cpp=.o))
 
