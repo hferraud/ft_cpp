@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hferraud <hferraud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,34 +9,32 @@
 /*   Updated: 2023/05/22 07:03:00 by hferraud         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-#include "Fixed.hpp"
-#include <iostream>
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-Fixed::Fixed () {
-	_rawBits = 0;
-	std::cout << "Default constructor called" << std::endl;
-}
+#include <ostream>
 
-Fixed::Fixed (Fixed &other) {
-	std::cout << "Copy constructor called" << std::endl;
-	*this = other;
-}
+class Fixed {
 
-Fixed::~Fixed () {
-	std::cout << "Destructor called" << std::endl;
-}
+public:
+	Fixed();
+	Fixed(const Fixed &other);
+	Fixed(const int val);
+	Fixed(const float val);
+	~Fixed();
 
-Fixed &Fixed::operator= (const Fixed &other) {
-	std::cout << "Copy assignment operator called" << std::endl;
-	_rawBits = other.getRawBits();
-	return (*this);
-}
+	Fixed			&operator = (const Fixed &other);
+	friend std::ostream& operator<<(std::ostream& os, const Fixed& fix);
 
-int Fixed::getRawBits () const {
-	std::cout << "getRawBits member function called" << std::endl;
-	return (_rawBits);
-}
+	int		getRawBits(void) const;
+	void	setRawBits(int);
+	float	toFloat(void) const;
+	int		toInt(void) const;
 
-void Fixed::setRawBits (const int raw) {
-	this->_rawBits = raw;
-}
+private:
+	int _rawBits;
+
+	static const int _fractional = 8;
+};
+
+#endif

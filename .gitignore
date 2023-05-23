@@ -1,5 +1,5 @@
 .idea/
-*.build
+.build/
 cpp_00/ex00/megaphone
 cpp_00/ex01/phonebook
 cpp_00/ex02/account
@@ -8,3 +8,6 @@ cpp_01/ex01/horde
 cpp_01/ex02/brain
 cpp_01/ex03/violence
 cpp_01/ex04/sed
+cpp_02/ex00/fixed
+cpp_02/ex01/fixed
+cpp_02/ex02/fixed
