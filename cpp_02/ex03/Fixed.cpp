@@ -30,7 +30,7 @@ Fixed::Fixed (const float val) {
 
 Fixed::~Fixed () {}
 
-Fixed& Fixed::operator= (const Fixed &other) {
+Fixed& Fixed::operator=(const Fixed& other) {
 	_rawBits = other.getRawBits();
 	return (*this);
 }
@@ -92,7 +92,7 @@ Fixed Fixed::operator--(int) {
 }
 
 bool operator<(const Fixed& l, const Fixed& r) {
-	return (l._rawBits < r._rawBits);
+	return (l.toFloat() < r.toFloat());
 }
 
 bool operator>(const Fixed& l, const Fixed& r) {
