@@ -19,8 +19,8 @@ bool bsp(Point const a, Point const b, Point const c, Point const point) {
 	float area1 = area(a, b, point);
 	float area2 = area(a, c, point);
 	float area3 = area(b, c, point);
-//	std::cout << "area " << area(a, b, c) << std::endl;
-//	area(a, b, point);
+	if (area1 == 0 || area2 == 0 || area3 == 0)
+		return (0);
 	return (areaTri == (area1 + area2 + area3));
 }
 
