@@ -10,27 +10,49 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "Point.hpp"
-#include <iostream>
+#include "Fixed.hpp"
 
-static float area(Point const a, Point const b, Point const c);
+static Fixed getDelta(Point const a, Point const b, Point const p);
+static bool isInSameSpace(Fixed const delta1, Fixed const delta2);
 
-bool bsp(Point const a, Point const b, Point const c, Point const point) {
-	float areaTri = area(a, b, c);
-	float area1 = area(a, b, point);
-	float area2 = area(a, c, point);
-	float area3 = area(b, c, point);
-	if (area1 == 0 || area2 == 0 || area3 == 0)
-		return (0);
-	return (areaTri == (area1 + area2 + area3));
+bool bsp(Point const a, Point const b, Point const c, Point const point)
+{
+	Fixed triangleDelta;
+	Fixed pointDelta;
+
+	triangleDelta = getDelta(a, b, c);
+	pointDelta = getDelta(a, b, point);
+	if (!isInSameSpace(triangleDelta, pointDelta))
+		return (false);
+	triangleDelta = getDelta(a, c, b);
+	pointDelta = getDelta(a, c, point);
+	if (!isInSameSpace(triangleDelta, pointDelta))
+		return (false);
+	triangleDelta = getDelta(b, c, a);
+	pointDelta = getDelta(b, c, point);
+	if (!isInSameSpace(triangleDelta, pointDelta))
+	{
+		return (false);
+	}
+	return (true);
 }
 
-static float area(Point const a, Point const b, Point const c)
+static Fixed getDelta(Point const a, Point const b, Point const p)
 {
-	Fixed	area;
+	Fixed	slope;
+	Fixed	zeroY;
+	Fixed	relativeY;
 
-	area = a.getX() * (b.getY() - c.getY());
-	area = area + b.getX() * (c.getY() - a.getY());
-	area = area + c.getX() * (a.getY() - b.getY());
-	area = area / 2.f;
-	return (abs(area.toFloat()));
+	slope = (b.getY() - a.getY()) / (b.getX() - a.getX());
+	zeroY = a.getY() - a.getX() * slope;
+	relativeY = slope * p.getX() + zeroY; //mx + p
+	return (p.getY() - relativeY);
+}
+
+static bool isInSameSpace(Fixed const delta1, Fixed const delta2)
+{
+	if (delta1 >= 0)
+		return (delta2 >= 0);
+	else
+		return (delta2 < 0);
 }
