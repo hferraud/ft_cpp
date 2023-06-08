@@ -54,7 +54,7 @@ ClapTrap& ClapTrap::operator=(ClapTrap& other)
 	std::cout << "Claptrap " << name << " appeared" << std::endl;
 }
 
-std::string ClapTrap::getName(void)
+std::string& ClapTrap::getName(void)
 {
 	return (this->name);
 }

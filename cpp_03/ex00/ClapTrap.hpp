@@ -17,7 +17,7 @@
 class ClapTrap {
 
 private:
-	std::string	name;
+	std::string name;
 	int			hitPoints;
 	int 		energyPoints;
 	int			attackDamage;
@@ -30,10 +30,10 @@ public:
 
 	ClapTrap& operator=(ClapTrap& other);
 
-	std::string getName(void);
-	int			getHitPoints(void);
-	int			getEnergyPoints(void);
-	int			getAttackDamage(void);
+	std::string& getName(void);
+	int getHitPoints(void);
+	int getEnergyPoints(void);
+	int getAttackDamage(void);
 
 	void attack(std::string& target);
 	void takeDamage(unsigned int amount);

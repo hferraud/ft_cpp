@@ -20,10 +20,13 @@ int main(void)
 
 	clap1.attack(clap2.getName());
 	clap2.takeDamage(clap1.getAttackDamage());
+
 	clap1Bis.attack(clap2Bis.getName());
 	clap2Bis.takeDamage(clap1Bis.getAttackDamage());
+
 	clap2.attack(clap1.getName());
 	clap1.takeDamage(clap2.getAttackDamage());
+
 	clap2Bis.attack(clap1Bis.getName());
 	clap1Bis.takeDamage(clap2Bis.getAttackDamage());
 }
