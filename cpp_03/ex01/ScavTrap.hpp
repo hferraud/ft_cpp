@@ -18,12 +18,10 @@ class ScavTrap: public ClapTrap{
 
 public:
 	ScavTrap();
-
-	ScavTrap(ScavTrap& const other);
-
+	ScavTrap(ScavTrap& other);
 	~ScavTrap();
 
-	ScavTrap& operator=(ScavTrap& const other);
+	ScavTrap& operator=(ScavTrap& other);
 };
 
 

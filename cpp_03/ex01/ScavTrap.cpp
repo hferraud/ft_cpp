@@ -11,10 +11,18 @@
 /* ************************************************************************** */
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() {}
+ScavTrap::ScavTrap() : ClapTrap()
+{
 
-ScavTrap::ScavTrap(ScavTrap& const other) {}
+}
+
+ScavTrap::ScavTrap(ScavTrap& other) : ClapTrap(other)
+{
+
+}
 
 ScavTrap::~ScavTrap() {}
 
-ScavTrap& ScavTrap::operator=(ScavTrap& const other) {}
+ScavTrap& ScavTrap::operator=(ScavTrap& other)
+{
+}
