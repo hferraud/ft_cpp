@@ -10,18 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 #include <iostream>
 
 int main(void)
 {
-	ClapTrap clap1("Clap_01");
-	ClapTrap clap1Bis(clap1);
-	ClapTrap clap2("Clap_02");
-	ClapTrap clap2Bis = clap2;
-	ClapTrap clapAnon;
+	ScavTrap scav1("Scav_01");
+	ScavTrap scav2(scav1);
+	ScavTrap scav3 = scav1;
+	ScavTrap clapAnon;
 
-	clap1Bis.setName("Clap_01_bis");
-	clap2Bis.setName("Clap_02_bis");
 
 	clap1.attack(clap2);
 	clap1Bis.attack(clap2Bis);

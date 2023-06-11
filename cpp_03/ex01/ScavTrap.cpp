@@ -13,16 +13,23 @@
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
-
+	this->hitPoints = 100;
+	this->attackDamage = 50;
+	this->hitPoints = 100;
 }
 
-ScavTrap::ScavTrap(ScavTrap& other) : ClapTrap(other)
+ScavTrap::ScavTrap(ScavTrap& other) : ClapTrap(other) {}
+
+ScavTrap::~ScavTrap()
 {
-
+	std::cout << "Scavtrap " << name << " disappeared" << std::endl;
 }
-
-ScavTrap::~ScavTrap() {}
 
 ScavTrap& ScavTrap::operator=(ScavTrap& other)
 {
+	this->name = other.name;
+	this->hitPoints = other.hitPoints;
+	this->energyPoints = other.energyPoints;
+	this->attackDamage = other.attackDamage;
+	return (*this);
 }
