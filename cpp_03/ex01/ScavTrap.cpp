@@ -39,11 +39,7 @@ ScavTrap::~ScavTrap()
 
 ScavTrap& ScavTrap::operator=(ScavTrap& other)
 {
-	// this->name = other.name;
-	// this->hitPoints = other.hitPoints;
-	// this->energyPoints = other.energyPoints;
-	// this->attackDamage = other.attackDamage;
-	(void)other;
+    std::cout << "= operator from " << other.getName() << std::endl;
 	return (*this);
 }
 
