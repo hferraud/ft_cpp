@@ -17,21 +17,26 @@ int main(void)
 {
 	ScavTrap scav1("Scav_01");
 	ScavTrap scav2(scav1);
-	ScavTrap scav3 = scav1;
-	ScavTrap clapAnon;
+	ScavTrap scavAnon;
+	ScavTrap scav3 = scavAnon;
 
-
-	clap1.attack(clap2);
-	clap1Bis.attack(clap2Bis);
-	clap1.setAttackDamage(5);
-	std::cout << "FIGHT !" << std::endl;
-	clap1.attack(clap2);
-	clap2.beRepaired(4);
-	clap2.status();
-	clap1.attack(clap2);
-	clap1.attack(clap2);
-	clap2.attack(clap1);
-	clap2.beRepaired(4);
-	clap2.status();
-	clap1.status();
+	std::cout << std::endl;
+	scav2.setName("Scav_02");
+	scav3.setName("Scav_03");
+	scav3.status();
+	scav2.status();
+	std::cout << std::endl;
+	scav2.attack(scav3);
+	scav1.attack(scav2);
+	scav1.attack(scav2);
+	scav2.beRepaired(4);
+	scav2.status();
+	scav1.setAttackDamage(70);
+	scav1.attack(scav2);
+	scav2.attack(scav1);
+	scav2.beRepaired(4);
+	scav1.guardGate();
+	scav2.status();
+	scav1.status();
+	std::cout << std::endl;
 }

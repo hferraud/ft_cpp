@@ -12,16 +12,22 @@
 #ifndef FT_CPP_SCAVTRAP_HPP
 #define FT_CPP_SCAVTRAP_HPP
 
+#include <iostream>
 #include "ClapTrap.hpp"
 
 class ScavTrap: public ClapTrap{
 
 public:
 	ScavTrap();
+	ScavTrap(std::string const name);
 	ScavTrap(ScavTrap& other);
 	~ScavTrap();
 
 	ScavTrap& operator=(ScavTrap& other);
+
+	void attack(std::string& target);
+	void attack(ScavTrap& target);
+	void guardGate(void);
 };
 
 

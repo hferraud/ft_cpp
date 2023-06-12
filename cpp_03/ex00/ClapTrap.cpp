@@ -36,8 +36,7 @@ ClapTrap::ClapTrap(ClapTrap& other)
 	hitPoints = other.getHitPoints();
 	energyPoints = other.getEnergyPoints();
 	attackDamage = other.getAttackDamage();
-	std::cout << "Claptrap " << name;
-	std::cout  << " cloned from " << other.getName() << std::endl;
+	std::cout << "Claptrap cloned from " << other.getName() << std::endl;
 }
 
 ClapTrap::~ClapTrap()

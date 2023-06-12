@@ -9,8 +9,8 @@
 /*   Updated: 2023/06/08 06:32:00 by mururoah         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+#include <iostream>
 #include "ClapTrap.hpp"
-#include "iostream"
 
 ClapTrap::ClapTrap()
 {
@@ -36,8 +36,7 @@ ClapTrap::ClapTrap(ClapTrap& other)
 	hitPoints = other.getHitPoints();
 	energyPoints = other.getEnergyPoints();
 	attackDamage = other.getAttackDamage();
-	std::cout << "Claptrap " << name;
-	std::cout  << " cloned from " << other.getName() << std::endl;
+	std::cout << "Claptrap cloned from " << other.getName() << std::endl;
 }
 
 ClapTrap::~ClapTrap()
