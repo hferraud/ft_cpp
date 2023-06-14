@@ -12,9 +12,10 @@
 #ifndef FT_CPP_SCAVTRAP_HPP
 #define FT_CPP_SCAVTRAP_HPP
 
+#include <iostream>
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap{
+class ScavTrap: public ClapTrap{
 
 public:
 	ScavTrap();

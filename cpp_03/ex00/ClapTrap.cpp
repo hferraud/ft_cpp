@@ -50,7 +50,7 @@ ClapTrap& ClapTrap::operator=(ClapTrap& other)
 	hitPoints = other.getHitPoints();
 	energyPoints = other.getEnergyPoints();
 	attackDamage = other.getAttackDamage();
-	std::cout << "Claptrap " << name << " appeared" << std::endl;
+	std::cout << "ClapTrap cloned from " << other.getName() << std::endl;
 	return (*this);
 }
 

@@ -1,4 +1,4 @@
-NAME		=		scavtrap
+NAME		=		fragtrap
 
 #######################
 #	DIR
@@ -17,6 +17,7 @@ BUILD_DIR	=		.build/
 SRC			=		main.cpp	\
 					ClapTrap.cpp	\
 					ScavTrap.cpp	\
+					FragTrap.cpp	\
 
 OBJ			=		$(addprefix $(BUILD_DIR), $(SRC:.cpp=.o))
 

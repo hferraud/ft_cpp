@@ -1,75 +1,76 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mururoah <mururoah@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/10 08:53:00 by mururoah          #+#    #+#             */
-/*   Updated: 2023/06/10 08:53:00 by mururoah         ###   ########lyon.fr   */
+/*   Created: 2023/06/14 00:54:00 by mururoah          #+#    #+#             */
+/*   Updated: 2023/06/14 00:54:00 by mururoah         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ScavTrap.hpp"
+#include <iostream>
+#include "FragTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap()
+FragTrap::FragTrap() : ClapTrap()
 {
 	this->hitPoints = 100;
-	this->energyPoints = 50;
-	this->attackDamage = 20;
-	std::cout << "An anonymous scavtrap appeared" << std::endl;
+	this->energyPoints = 100;
+	this->attackDamage = 30;
+	std::cout << "An anonymous fragtrap appeared" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string const name) : ClapTrap(name)
+FragTrap::FragTrap(std::string const name) : ClapTrap(name)
 {
 	this->name = name;
 	this->hitPoints = 100;
-	this->energyPoints = 50;	
-	this->attackDamage = 20;
-	std::cout << "Scavtrap " << name << " appeared" << std::endl;
+	this->energyPoints = 100;
+	this->attackDamage = 30;
+	std::cout << "FragTrap " << name << " appeared" << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap& other) : ClapTrap(other)
+FragTrap::FragTrap(FragTrap& other) : ClapTrap(other)
 {
-	std::cout << "Scavtrap cloned from " << other.getName() << std::endl;
+	std::cout << "Fragtrap cloned from " << other.getName() << std::endl;
 }
 
-ScavTrap::~ScavTrap()
+FragTrap::~FragTrap()
 {
-	std::cout << "Scavtrap " << name << " disappeared" << std::endl;
+	std::cout << "Fragtrap " << name << " disappeared" << std::endl;
 }
 
-ScavTrap& ScavTrap::operator=(ScavTrap& other)
+FragTrap& FragTrap::operator=(FragTrap& other)
 {
 	name = other.getName();
 	hitPoints = other.getHitPoints();
 	energyPoints = other.getEnergyPoints();
 	attackDamage = other.getAttackDamage();
-	std::cout << "Scavtrap cloned from " << other.getName() << std::endl;
+	std::cout << "FragTrap cloned from " << other.getName() << std::endl;
 	return (*this);
 }
 
-void ScavTrap::attack(std::string& target)
+void FragTrap::attack(std::string& target)
 {
 	if (hitPoints <= 0)
 	{
-		std::cout << "ScavTrap " << this->name;
+		std::cout << "FragTrap " << this->name;
 		std::cout << " try to attack but is broken" << std::endl;
 		return;
 	}
 	if (energyPoints == 0)
 	{
-		std::cout << "Scavtrap " << this->name;
+		std::cout << "Fragtrap " << this->name;
 		std::cout << " try to attack but has no energy left" << std::endl;
 		return;
 	}
-	std::cout << "Scavtrap " << this->name;
+	std::cout << "Fragtrap " << this->name;
 	std::cout << " attacks " << target;
 	std::cout << " inflicting " << this->attackDamage;
 	std::cout << " damages" << std::endl;
 	energyPoints--;
 }
 
-void ScavTrap::attack(ScavTrap& target)
+void FragTrap::attack(FragTrap& target)
 {
 	if (hitPoints <= 0 || energyPoints == 0)
 	{
@@ -80,8 +81,8 @@ void ScavTrap::attack(ScavTrap& target)
 	target.takeDamage(this->attackDamage);
 }
 
-void ScavTrap::guardGate(void)
+void FragTrap::guardGate(void)
 {
-	std::cout << "Scavtrap " << this->name;
+	std::cout << "FragTrap " << this->name;
 	std::cout << " is now in Gate keeper mode" << std::endl;
 }
