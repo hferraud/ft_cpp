@@ -26,7 +26,7 @@ DiamondTrap::DiamondTrap(std::string name)
 	this->name = name;
 	ClapTrap::name = name.append("_clap_name");
 	hitPoints = FragTrap::hitPoints;
-	std::cout << "nrj: " << DiamondTrap::FragTrap::attackDamage << std::endl;
+	energyPoints = ScavTrap::energyPoints;
 	attackDamage = FragTrap::attackDamage;
 	std::cout << "DiamondTrap " << this->name << " appeared" << std::endl;
 }
