@@ -22,12 +22,12 @@ private:
 
 public:
 	Dog();
-	Dog(Dog& other);
+	Dog(Dog const & other);
 	~Dog();
 
-	Dog& operator=(Dog& other);
+	Dog& operator=(Dog const & other);
 
-	Brain* getBrain(void);
+	Brain* getBrain(void) const;
 
 	void makeSound(void) const;
 };

@@ -19,7 +19,7 @@ Dog::Dog() : Animal()
 	std::cout << "Dog default constructor" << std::endl;
 }
 
-Dog::Dog(Dog& other) : Animal(other)
+Dog::Dog(const Dog& other) : Animal(other)
 {
 	_brain = new Brain();
 	*_brain = *other.getBrain();
@@ -32,7 +32,7 @@ Dog::~Dog()
 	std::cout << "Dog destructor" << std::endl;
 }
 
-Dog& Dog::operator=(Dog& other)
+Dog& Dog::operator=(const Dog& other)
 {
 	this->setType(other.getType());
 	*_brain = *other.getBrain();
@@ -40,7 +40,7 @@ Dog& Dog::operator=(Dog& other)
 	return (*this);
 }
 
-Brain* Dog::getBrain()
+Brain* Dog::getBrain() const
 {
 	return (_brain);
 }
