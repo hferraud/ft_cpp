@@ -1,4 +1,4 @@
-NAME		=		animal
+NAME		=		claptrap
 
 #######################
 #	DIR
@@ -15,11 +15,7 @@ BUILD_DIR	=		.build/
 #######################
 
 SRC			=		main.cpp	\
-					AMateria.cpp	\
-					MateriaSource.cpp	\
-					Ice.cpp	\
-					Cure.cpp	\
-					Character.cpp	\
+					ClapTrap.cpp	\
 
 OBJ			=		$(addprefix $(BUILD_DIR), $(SRC:.cpp=.o))
 
