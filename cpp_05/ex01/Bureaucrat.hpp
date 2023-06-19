@@ -12,12 +12,15 @@
 #ifndef FT_CPP_BUREAUCRAT_HPP
 #define FT_CPP_BUREAUCRAT_HPP
 
+#include "Form.hpp"
 #include <string>
 #include <iostream>
 #include <exception>
 
 #define GRADE_MAX 1
 #define GRADE_MIN 150
+
+class Form;
 
 class Bureaucrat {
 
@@ -52,6 +55,7 @@ public:
 
 	void upgrade(void);
 	void downgrade(void);
+	void signForm(Form form);
 };
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat& obj);

@@ -73,3 +73,17 @@ void Bureaucrat::downgrade()
 	std::cout << _name << " just got downgraded !\n";
 	_grade++;
 }
+
+void Bureaucrat::signForm(Form form)
+{
+	try
+	{
+		form.beSigned(*this);
+	}
+	catch (std::exception& e)
+	{
+		std::cout << _name << " couldn't sign " << form.getName() << " because " << e.what() << "\n";
+		return;
+	}
+	std::cout << _name << " signed " << form.getName();
+}

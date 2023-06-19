@@ -12,7 +12,11 @@
 #ifndef FT_CPP_FORM_HPP
 # define FT_CPP_FORM_HPP
 
+#include "Bureaucrat.hpp"
 #include <string>
+#include <exception>
+
+class Bureaucrat;
 
 class Form {
 
@@ -38,6 +42,7 @@ private:
 
 public:
 	Form();
+	Form(std::string const name, int const signGrade, int const execGrade);
 	Form(Form const& other);
 	~Form();
 
@@ -45,8 +50,12 @@ public:
 
 	std::string const getName(void) const;
 	bool getSigned(void) const;
-	int const getSignGrade(void) const;
-	int const getExecGrade(void) const;
+	int getSignGrade(void) const;
+	int getExecGrade(void) const;
+
+	void beSigned(Bureaucrat bureaucrat);
 };
+
+std::ostream& operator<<(std::ostream& os, Form& obj);
 
 #endif
