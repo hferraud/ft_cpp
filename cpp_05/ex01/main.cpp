@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <exception>
 #include <iostream>
 
@@ -17,44 +18,27 @@ int main(void)
 {
 	try
 	{
-		Bureaucrat jon("Jon", 151);
+		Form("Test", 151, 151);
 	}
 	catch (std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	std::cout << '\n';
 	try
 	{
-		Bureaucrat jon("Joe", 0);
+		Form("Test", 0, 0);
 	}
 	catch (std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	std::cout << '\n';
-	try
-	{
-		Bureaucrat bob("Bob", 2);
-		std::cout << bob;
-		bob.upgrade();
-		std::cout << bob;
-		bob.upgrade();
-	}
-	catch (std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	std::cout << '\n';
-	try
-	{
-		Bureaucrat bill;
-		std::cout << bill;
-		bill.downgrade();
-		std::cout << bill;
-	}
-	catch (std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	Bureaucrat bob("Bob", 39);
+	Form eval("Test", 40, 10);
+
+	std::cout << bob << eval;
+	bob.signForm(eval);
+	std::cout << eval;
+	bob.upgrade();
+	bob.signForm(eval);
+	std::cout << eval;
 }
