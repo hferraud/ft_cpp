@@ -39,6 +39,13 @@ private:
 			return ("Grade is too low");
 		}
 	};
+	class	FormNotSignedException: public std::exception
+	{
+		const char* what() const throw()
+		{
+			return ("Form is not signed");
+		}
+	};
 
 protected:
 	std::string _target;
@@ -59,6 +66,8 @@ public:
 	void setSigned(bool sign);
 
 	void beSigned(Bureaucrat bureaucrat);
+	void execute(Bureaucrat const & executor);
+	virtual void execute(void) = 0;
 };
 
 std::ostream& operator<<(std::ostream& os, AForm& obj);

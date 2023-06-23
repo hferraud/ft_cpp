@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hferraud <hferraud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/21 07:40:00 by hferraud          #+#    #+#             */
-/*   Updated: 2023/06/21 07:40:00 by hferraud         ###   ########lyon.fr   */
+/*   Created: 2023/06/23 08:07:00 by hferraud          #+#    #+#             */
+/*   Updated: 2023/06/23 08:07:00 by hferraud         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef CPP_PISCINE_SHRUBBERYCREATIONFORM_HPP
-#define CPP_PISCINE_SHRUBBERYCREATIONFORM_HPP
+#ifndef CPP_PISCINE_PRESIDENTIALPARDONFORM_HPP
+#define CPP_PISCINE_PRESIDENTIALPARDONFORM_HPP
 
 #include "AForm.hpp"
-#include <string>
 
-class ShrubberyCreationForm : public AForm {
+class PresidentialPardonForm : public AForm{
+
+private:
 
 public:
-	ShrubberyCreationForm();
-	ShrubberyCreationForm(std::string target);
-	ShrubberyCreationForm(ShrubberyCreationForm const & other);
-	~ShrubberyCreationForm();
+	PresidentialPardonForm();
+	PresidentialPardonForm(std::string target);
+	PresidentialPardonForm(PresidentialPardonForm const& other);
+	~PresidentialPardonForm();
 
-	ShrubberyCreationForm& operator=(ShrubberyCreationForm const & other);
+	PresidentialPardonForm& operator=(PresidentialPardonForm const& other);
 
 	void execute(void);
 };

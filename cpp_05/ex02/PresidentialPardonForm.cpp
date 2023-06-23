@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hferraud <hferraud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/21 07:40:00 by hferraud          #+#    #+#             */
-/*   Updated: 2023/06/21 07:40:00 by hferraud         ###   ########lyon.fr   */
+/*   Created: 2023/06/23 08:07:00 by hferraud          #+#    #+#             */
+/*   Updated: 2023/06/23 08:07:00 by hferraud         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrub", 145, 137)
+PresidentialPardonForm::PresidentialPardonForm() : AForm("Pres", 25, 5)
 {
 	_target = "none";
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrub", 145, 137)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Pres", 25, 5)
 {
 	_target = target;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &other) : AForm(other.getName(), 145, 137)
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &other)
 {
 	*this = other;
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm() {}
+PresidentialPardonForm::~PresidentialPardonForm() {}
 
-ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &other)
+PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const &other)
 {
 	_target = other._target;
 	setSigned(other.getSigned());
 	return (*this);
 }
 
-void ShrubberyCreationForm::execute() {}
+void PresidentialPardonForm::execute() {}

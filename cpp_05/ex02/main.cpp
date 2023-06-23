@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 #include <iostream>
 
@@ -17,4 +19,8 @@ int main(void)
 {
 	ShrubberyCreationForm sForm("home");
 	std::cout << sForm;
+	RobotomyRequestForm rForm("wall-E");
+	std::cout << rForm;
+	PresidentialPardonForm pForm("wall-E");
+	std::cout << pForm;
 }

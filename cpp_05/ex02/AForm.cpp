@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include <string>
 
 AForm::AForm() : _name("anonymous"), _signGrade(150), _execGrade(150)
 {
@@ -88,4 +89,15 @@ void AForm::beSigned(Bureaucrat bureaucrat)
 		throw (AForm::GradeTooLowException());
 	else
 		_signed = true;
+}
+
+void AForm::execute(const Bureaucrat &executor)
+{
+	if (!_signed)
+	{
+		throw (FormNotSignedException());
+	}
+	if (executor.getGrade() > _execGrade)
+		throw (GradeTooLowException());
+
 }
