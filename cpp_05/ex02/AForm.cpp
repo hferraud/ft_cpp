@@ -99,5 +99,5 @@ void AForm::execute(const Bureaucrat &executor)
 	}
 	if (executor.getGrade() > _execGrade)
 		throw (GradeTooLowException());
-
+	process();
 }

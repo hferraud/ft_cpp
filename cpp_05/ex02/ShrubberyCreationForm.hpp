@@ -25,7 +25,7 @@ public:
 
 	ShrubberyCreationForm& operator=(ShrubberyCreationForm const & other);
 
-	void execute(void);
+	void process(void);
 };
 
 #endif

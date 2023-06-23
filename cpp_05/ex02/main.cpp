@@ -14,13 +14,21 @@
 #include "PresidentialPardonForm.hpp"
 
 #include <iostream>
+#include <exception>
 
 int main(void)
 {
+	Bureaucrat const tim("Tim", 1);
 	ShrubberyCreationForm sForm("home");
 	std::cout << sForm;
+	tim.signForm(sForm);
+	tim.executeForm(sForm);
 	RobotomyRequestForm rForm("wall-E");
 	std::cout << rForm;
-	PresidentialPardonForm pForm("wall-E");
+	tim.signForm(rForm);
+	tim.executeForm(rForm);
+	PresidentialPardonForm pForm("LE U");
 	std::cout << pForm;
+	tim.signForm(pForm);
+	tim.executeForm(pForm);
 }

@@ -25,7 +25,7 @@ public:
 
 	RobotomyRequestForm &operator=(RobotomyRequestForm const& other);
 
-	void execute(void);
+	void process(void);
 };
 
 #endif

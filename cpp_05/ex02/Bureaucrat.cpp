@@ -18,8 +18,6 @@ Bureaucrat::Bureaucrat() : _name("anonymous")
 
 Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name)
 {
-	std::cout << "Trying to instantiate a bureaucrat named " << name;
-	std::cout << " with a grade of " << grade << '\n';
 	if (grade < GRADE_MAX)
 		throw (Bureaucrat::GradeTooHighException());
 	else if (grade > GRADE_MIN)
@@ -74,7 +72,7 @@ void Bureaucrat::downgrade()
 	_grade++;
 }
 
-void Bureaucrat::signForm(AForm form)
+void Bureaucrat::signForm(AForm& form) const
 {
 	try
 	{
@@ -85,5 +83,19 @@ void Bureaucrat::signForm(AForm form)
 		std::cout << _name << " couldn't sign " << form.getName() << " because " << e.what() << "\n";
 		return;
 	}
-	std::cout << _name << " signed " << form.getName();
+	std::cout << _name << " signed " << form.getName() << "\n";
+}
+
+void Bureaucrat::executeForm(AForm& form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << _name << " executed " << form.getName() << "\n";
+	}
+	catch (std::exception& e)
+	{
+		std::cout << _name << " couldn't execute " << form.getName() << ": ";
+		std::cout << e.what() << "\n";
+	}
 }

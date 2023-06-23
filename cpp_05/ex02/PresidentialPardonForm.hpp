@@ -26,7 +26,7 @@ public:
 
 	PresidentialPardonForm& operator=(PresidentialPardonForm const& other);
 
-	void execute(void);
+	void process(void);
 };
 
 #endif

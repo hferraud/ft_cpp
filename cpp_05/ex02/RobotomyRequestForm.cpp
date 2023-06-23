@@ -38,11 +38,15 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm const & 
 	return (*this);
 }
 
-void RobotomyRequestForm::execute()
+void RobotomyRequestForm::process()
 {
 	int randomNumber;
 
-	srand(time(NULL));
+	srand((time(NULL)));
 	randomNumber = rand() % 100;
-	std::cout << "rand: " << randomNumber << "\n";
+	std::cout << "VVVVVVZZZZZZZZZZ\n";
+	if (randomNumber < 50)
+		std::cout << _target << " has been robotomized\n";
+	else
+		std::cout << _target << " robotomization failed\n";
 }

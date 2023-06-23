@@ -67,7 +67,7 @@ public:
 
 	void beSigned(Bureaucrat bureaucrat);
 	void execute(Bureaucrat const & executor);
-	virtual void execute(void) = 0;
+	virtual void process(void) = 0;
 };
 
 std::ostream& operator<<(std::ostream& os, AForm& obj);

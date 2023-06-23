@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "ShrubberyCreationForm.hpp"
+#include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrub", 145, 137)
 {
@@ -35,4 +36,20 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 	return (*this);
 }
 
-void ShrubberyCreationForm::execute() {}
+void ShrubberyCreationForm::process()
+{
+	std::ofstream file;
+
+	file.open(_target + "_shrubbery");
+	file << "      /\\      \n";
+	file <<	"     /\\*\\     \n";
+	file <<	"    /\\O\\*\\    \n";
+	file <<	"   /*/\\/\\/\\   \n";
+	file <<	"  /\\O\\/\\*\\/\\  \n";
+	file <<	" /\\*\\/\\*\\/\\/\\ \n";
+	file <<	"/\\O\\/\\/*/\\/O/\\\n";
+	file <<	"      ||      \n";
+	file <<	"      ||      \n";
+	file <<	"      ||      \n";
+	file.close();
+}

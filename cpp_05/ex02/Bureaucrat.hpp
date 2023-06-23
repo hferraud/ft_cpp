@@ -55,7 +55,8 @@ public:
 
 	void upgrade(void);
 	void downgrade(void);
-	void signForm(AForm form);
+	void signForm(AForm& form) const;
+	void executeForm(AForm& form) const;
 };
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat& obj);
