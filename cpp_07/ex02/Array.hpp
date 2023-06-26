@@ -14,6 +14,7 @@
 
 #include <stdlib.h>
 #include <exception>
+#include <iostream>
 
 template <typename T>
 class Array {
@@ -34,6 +35,7 @@ public:
 	}
 
 	Array(Array const& other) {
+		std::cout << "here";
 		*this = other;
 	}
 

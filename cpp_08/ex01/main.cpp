@@ -59,7 +59,6 @@ int main(void) {
 		std::cerr << "Something went wrong when filling s3\n";
 	}
 
-
 	s3.fill(0, 20, 20);
 	s3.printSpan();
 

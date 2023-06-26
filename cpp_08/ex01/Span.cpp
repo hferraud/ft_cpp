@@ -75,7 +75,7 @@ void Span::fill(unsigned int start, unsigned int end, int range) {
 		throw (std::exception());
 	if (_list.size() < end)
 	_list.resize(end);
-	for (std::vector<int>::iterator i = _list.begin(); i != _list.end(); i++)
+	for (std::vector<int>::iterator i = _list.begin() + start; i != _list.begin() + end; i++)
 		*i = arc4random() % range;
 }
 
