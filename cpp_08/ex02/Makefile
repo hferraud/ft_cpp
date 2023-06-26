@@ -24,7 +24,7 @@ DEPS		=		$(addprefix $(BUILD_DIR), $(SRC:.cpp=.d))
 #	FLAGS
 #######################
 
-CFLAGS		=		-Wall -Werror -Wextra -std=c++98 #-fsanitize=address
+CFLAGS		=		-Wall -Werror -Wextra -std=c++98
 
 IFLAGS		=		-I $(INC_DIR)
 
