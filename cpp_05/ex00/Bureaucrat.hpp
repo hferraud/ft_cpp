@@ -24,14 +24,14 @@ class Bureaucrat {
 private:
 	std::string const	_name;
 	int					_grade;
-	class	GradeTooHighException : public std::exception
+	class GradeTooHighException : public std::exception
 	{
 		const char* what() const throw()
 		{
 			return ("Grade is too high");
 		}
 	};
-	class	GradeTooLowException : public std::exception
+	class GradeTooLowException : public std::exception
 	{
 		const char* what() const throw()
 		{
