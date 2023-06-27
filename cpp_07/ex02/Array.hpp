@@ -35,7 +35,7 @@ public:
 	}
 
 	Array(Array const& other) {
-		std::cout << "here";
+		_array = NULL;
 		*this = other;
 	}
 
@@ -46,7 +46,8 @@ public:
 	Array& operator=(Array const& other) {
 		if (this == &other)
 			return (*this);
-		delete [] _array;
+		if (_array != NULL)
+			delete [] _array;
 		_size = other._size;
 		_array = new T[_size];
 		for (size_t i = 0; i < _size; i++)
