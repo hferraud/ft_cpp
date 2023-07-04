@@ -15,6 +15,7 @@
 #include <iostream>
 
 static std::ifstream openDataFile(std::string fileName);
+static bool isValidKey(std::string key);
 
 BitcoinExchange::BitcoinExchange() {
 	parseData();
@@ -73,7 +74,9 @@ void BitcoinExchange::processLine(std::string line) {
 	}
 	key = line.substr(0, separatorPos - 1);
 	value = std::atof(line.substr(separatorPos + 1, line.size()).c_str());
-	if (value < 0)
+	if (!isValidKey(key))
+		std::cerr << "Error: bad input => " << line << '\n';
+	else if (value < 0)
 		std::cerr << "Error: not a positive number\n";
 	else if (value > 1000)
 		std::cerr << "Error: too large number\n";
@@ -98,4 +101,19 @@ static std::ifstream openDataFile(std::string fileName) {
 	return (file);
 }
 
-
+static bool isValidKey(std::string key) {
+	for (int i = 0; i < 4; i++)
+		if (key[i] == '\0' || !isdigit(key[i]))
+			return (false);
+	if (key[4] == '\0' || key[4] != '-')
+		return (false);
+	for (int i = 5; i < 7; i++)
+		if (key[i] == '\0' || !isdigit(key[i]))
+			return (false);
+	if (key[7] == '\0' || key[7] != '-')
+		return (false);
+	for (int i = 8; i < 10; i++)
+		if (key[i] == '\0' || !isdigit(key[i]))
+			return (false);
+	return (true);
+}
