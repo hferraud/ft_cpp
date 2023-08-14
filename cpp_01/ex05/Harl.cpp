@@ -6,7 +6,7 @@
 /*   By: mururoah <mururoah@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 20:42:00 by mururoah          #+#    #+#             */
-/*   Updated: 2023/05/20 20:42:00 by mururoah         ###   ########lyon.fr   */
+/*   Updated: 2023/08/14 11:39:33 by hferraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "Harl.hpp"
@@ -22,11 +22,13 @@ void Harl::complain(std::string level) {
 
 	i = 0;
 	size = sizeof(levelStr) / sizeof(*levelStr);
-	while (i < size && levelStr[i] != level)
-		i++;
 	while (i < size)
 	{
-		(this->*levelFunction[i])();
+		if (levelStr[i] == level)
+		{
+			(this->*levelFunction[i])();
+			return;
+		}
 		i++;
 	}
 }

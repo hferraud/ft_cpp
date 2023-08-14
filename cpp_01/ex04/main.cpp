@@ -6,7 +6,7 @@
 /*   By: mururoah <mururoah@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 18:27:00 by mururoah          #+#    #+#             */
-/*   Updated: 2023/05/20 18:27:00 by mururoah         ###   ########lyon.fr   */
+/*   Updated: 2023/08/14 11:28:18 by hferraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <iostream>
@@ -22,7 +22,10 @@ int main(int argc, char **argv)
 	char			c;
 
 	if (argc != 4)
+	{
 		std::cerr << "Error: Too few arguments" << std::endl;
+		return (1);
+	}
 	std::string		oFilename(argv[1]);
 	oFilename.append(".replace");
 	ifs.open(argv[1], std::ifstream::in);
