@@ -24,7 +24,7 @@ int main(void) {
 	std::cout << "a + b: " << a + b << std::endl;
 	std::cout << "a - b: " << a - b << std::endl;
 	std::cout << "a * b: " << a * b << std::endl;
-	std::cout << "b / a: " << b / a << std::endl;
+	std::cout << "b / 1.5: " << b / Fixed(1.5f) << std::endl;
 	std::cout << "a < b: " << (a < b) << std::endl;
 	std::cout << "a > b: " << (a > b) << std::endl;
 	std::cout << "a == b: " << (a == b) << std::endl;
