@@ -25,7 +25,7 @@ Point Point::operator= (const Point& other) {
 }
 
 std::ostream&	operator<<(std::ostream& os, const Point& p) {
-	os << "x: " << p._x.toFloat() << " y: " << p._y.toFloat();
+	os << "x: " << p.getX().toFloat() << " y: " << p.getY().toFloat();
 	return (os);
 }
 

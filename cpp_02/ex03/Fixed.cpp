@@ -43,19 +43,19 @@ std::ostream& operator<<(std::ostream& os, const Fixed& fix) {
 
 Fixed operator+(const Fixed& l, const Fixed& r) {
 	Fixed res;
-	res.setRawBits(l._rawBits + r._rawBits);
+	res.setRawBits(l.getRawBits() + r.getRawBits());
 	return (res);
 }
 
 Fixed operator-(const Fixed& l, const Fixed& r) {
 	Fixed res;
-	res.setRawBits(l._rawBits - r._rawBits);
+	res.setRawBits(l.getRawBits() - r.getRawBits());
 	return (res);
 }
 
 Fixed operator*(const Fixed& l, const Fixed& r) {
 	Fixed res;
-	res.setRawBits((l._rawBits * r._rawBits) >> l._fractional);
+	res.setRawBits((l.getRawBits() * r.getRawBits()) >> l.getFractional());
 	return (res);
 }
 
@@ -63,7 +63,7 @@ Fixed operator/(const Fixed& l, const Fixed& r) {
 	Fixed	res;
 	int		rawBits;
 
-	rawBits = roundf((float)l._rawBits / r._rawBits * (1 << l._fractional));
+	rawBits = roundf((float)l.getRawBits() / r.getRawBits() * (1 << l.getFractional()));
 	res.setRawBits(rawBits);
 	return (res);
 }
@@ -93,7 +93,7 @@ Fixed Fixed::operator--(int) {
 }
 
 bool operator<(const Fixed& l, const Fixed& r) {
-	return (l.toFloat() < r.toFloat());
+	return (l.getRawBits() < r.getRawBits());
 }
 
 bool operator>(const Fixed& l, const Fixed& r) {
@@ -118,6 +118,10 @@ bool operator!=(const Fixed& l, const Fixed& r) {
 
 int Fixed::getRawBits () const {
 	return (_rawBits);
+}
+
+int Fixed::getFractional() const {
+	return (_fractional);
 }
 
 void Fixed::setRawBits (const int raw) {

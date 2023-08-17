@@ -28,11 +28,12 @@ public:
 	~Point();
 
 	Point					operator=(const Point& other);
-	friend std::ostream&	operator<<(std::ostream& os, const Point& p);
 
 	const Fixed&	getX(void) const;
 	const Fixed&	getY(void) const;
 };
+
+std::ostream&	operator<<(std::ostream& os, const Point& p);
 
 bool bsp(Point const a, Point const b, Point const c, Point const point);
 

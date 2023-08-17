@@ -24,24 +24,14 @@ public:
 	~Fixed();
 
 	Fixed &operator=(const Fixed &other);
-	friend std::ostream& operator<<(std::ostream& os, const Fixed& fix);
 
 	Fixed& operator++(void);
 	Fixed operator++(int);
 	Fixed& operator--(void);
 	Fixed operator--(int);
-	friend Fixed operator+(const Fixed& l, const Fixed& r);
-	friend Fixed operator-(const Fixed& l, const Fixed& r);
-	friend Fixed operator*(const Fixed& l, const Fixed& r);
-	friend Fixed operator/(const Fixed& l, const Fixed& r);
-	friend bool operator<(const Fixed& l, const Fixed& r);
-	friend bool operator>(const Fixed& l, const Fixed& r);
-	friend bool operator<=(const Fixed& l, const Fixed& r);
-	friend bool operator>=(const Fixed& l, const Fixed& r);
-	friend bool operator==(const Fixed& l, const Fixed& r);
-	friend bool operator!=(const Fixed& l, const Fixed& r);
 
 	int		getRawBits(void) const;
+	int		getFractional(void) const;
 	void	setRawBits(int);
 
 	float	toFloat(void) const;
@@ -56,5 +46,18 @@ private:
 	int _rawBits;
 	static const int _fractional = 8;
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fix);
+
+Fixed operator+(const Fixed& l, const Fixed& r);
+Fixed operator-(const Fixed& l, const Fixed& r);
+Fixed operator*(const Fixed& l, const Fixed& r);
+Fixed operator/(const Fixed& l, const Fixed& r);
+bool operator<(const Fixed& l, const Fixed& r);
+bool operator>(const Fixed& l, const Fixed& r);
+bool operator<=(const Fixed& l, const Fixed& r);
+bool operator>=(const Fixed& l, const Fixed& r);
+bool operator==(const Fixed& l, const Fixed& r);
+bool operator!=(const Fixed& l, const Fixed& r);
 
 #endif
