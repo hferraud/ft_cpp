@@ -19,6 +19,8 @@
 int main(void) {
 	const Animal* dog = new Dog();
 	const Animal* cat = new Cat();
+	Dog* machin = new Dog();
+	Dog truc = *machin;
 
 	std::cout << std::endl;
 	std::cout << "OMG look at this " << dog->getType() << std::endl;
