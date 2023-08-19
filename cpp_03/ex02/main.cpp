@@ -25,6 +25,7 @@ int main(void)
 	frag3.status();
 	frag2.status();
 	std::cout << std::endl;
+	std::cout << "FIGHT !" << std::endl;
 	frag2.attack(frag3);
 	frag1.attack(frag2);
 	frag1.attack(frag2);
@@ -34,7 +35,7 @@ int main(void)
 	frag1.attack(frag2);
 	frag2.attack(frag1);
 	frag2.beRepaired(4);
-	frag1.guardGate();
+	frag1.highFiveGuys();
 	frag2.status();
 	frag1.status();
 	std::cout << std::endl;

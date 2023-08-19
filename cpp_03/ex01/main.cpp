@@ -26,6 +26,7 @@ int main(void)
 	scav3.status();
 	scav2.status();
 	std::cout << std::endl;
+	std::cout << "FIGHT !" << std::endl;
 	scav2.attack(scav3);
 	scav1.attack(scav2);
 	scav1.attack(scav2);

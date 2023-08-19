@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "ScavTrap.hpp"
+#include <iostream>
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
@@ -69,7 +70,7 @@ void ScavTrap::attack(std::string& target)
 	energyPoints--;
 }
 
-void ScavTrap::attack(ClapTrap& target)
+void ScavTrap::attack(ScavTrap& target)
 {
 	if (hitPoints <= 0 || energyPoints == 0)
 	{

@@ -45,7 +45,7 @@ FragTrap& FragTrap::operator=(FragTrap& other)
 	hitPoints = other.getHitPoints();
 	energyPoints = other.getEnergyPoints();
 	attackDamage = other.getAttackDamage();
-	std::cout << "FragTrap cloned from " << other.getName() << std::endl;
+	std::cout << "FragTrap now equal " << other.getName() << std::endl;
 	return (*this);
 }
 
@@ -81,8 +81,6 @@ void FragTrap::attack(FragTrap& target)
 	target.takeDamage(this->attackDamage);
 }
 
-void FragTrap::guardGate(void)
-{
-	std::cout << "FragTrap " << this->name;
-	std::cout << " is now in Gate keeper mode" << std::endl;
+void FragTrap::highFiveGuys(void) {
+	std::cout << "Yay high five !" << std::endl;
 }

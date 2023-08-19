@@ -26,7 +26,7 @@ public:
 
 	void attack(std::string& target);
 	void attack(FragTrap& target);
-	void guardGate(void);
+	void highFiveGuys(void);
 };
 
 #endif

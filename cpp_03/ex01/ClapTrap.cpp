@@ -9,8 +9,8 @@
 /*   Updated: 2023/06/08 06:32:00 by mururoah         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-#include <iostream>
 #include "ClapTrap.hpp"
+#include "iostream"
 
 ClapTrap::ClapTrap()
 {
@@ -32,10 +32,7 @@ ClapTrap::ClapTrap(std::string const name)
 
 ClapTrap::ClapTrap(ClapTrap& other)
 {
-	name = other.getName();
-	hitPoints = other.getHitPoints();
-	energyPoints = other.getEnergyPoints();
-	attackDamage = other.getAttackDamage();
+	*this = other;
 	std::cout << "Claptrap cloned from " << other.getName() << std::endl;
 }
 
@@ -50,7 +47,7 @@ ClapTrap& ClapTrap::operator=(ClapTrap& other)
 	hitPoints = other.getHitPoints();
 	energyPoints = other.getEnergyPoints();
 	attackDamage = other.getAttackDamage();
-	std::cout << "ClapTrap cloned from " << other.getName() << std::endl;
+	std::cout << "ClapTrap now equal " << other.getName() << std::endl;
 	return (*this);
 }
 

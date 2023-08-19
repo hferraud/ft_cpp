@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "DiamondTrap.hpp"
+#include <iostream>
 
 DiamondTrap::DiamondTrap() : ClapTrap()
 {
@@ -53,12 +54,12 @@ DiamondTrap& DiamondTrap::operator=(DiamondTrap& other)
 
 void DiamondTrap::attack(std::string &target)
 {
-	ScavTrap::attack(target);
+	ClapTrap::attack(target);
 }
 
 void DiamondTrap::attack(ClapTrap& target)
 {
-	ScavTrap::attack(target);
+	ClapTrap::attack(target);
 }
 
 void DiamondTrap::guardGate(void)
