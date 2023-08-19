@@ -15,34 +15,24 @@
 int main(void)
 {
 	DiamondTrap diam1("Frag_01");
+	DiamondTrap diam2(diam1);
+	diam2.setName("Frag_02");
 	diam1.status();
+	diam2.status();
 	std::cout << std::endl;
-	ScavTrap scav("Scav_01");
-	scav.status();
-//	std::cout << std::endl;
-//	DiamondTrap frag2(diam1);
-//	std::cout << std::endl;
-//	DiamondTrap frag3;
-//	frag3 = diam1;
-//
-//
-//	std::cout << std::endl;
-//	frag2.setName("Frag_02");
-//	frag3.setName("Frag_03");
-//	frag3.status();
-//	frag2.status();
-//	std::cout << std::endl;
-//	frag2.attack(frag3);
-//	diam1.attack(frag2);
-//	diam1.attack(frag2);
-//	frag2.beRepaired(4);
-//	frag2.status();
-//	diam1.setAttackDamage(70);
-//	diam1.attack(frag2);
-//	frag2.attack(diam1);
-//	frag2.beRepaired(4);
-//	diam1.guardGate();
-//	frag2.status();
-//	diam1.status();
-//	std::cout << std::endl;
+	std::cout << "FIGHT !" << std::endl;
+	diam1.attack(diam2);
+	diam1.attack(diam2);
+	diam2.beRepaired(4);
+	diam2.status();
+	diam1.setAttackDamage(70);
+	diam1.attack(diam2);
+	diam2.attack(diam1);
+	diam2.beRepaired(4);
+	diam2.status();
+	diam1.status();
+	diam1.guardGate();
+	diam1.highFiveGuys();
+	diam1.whoAmI();
+	diam2.whoAmI();
 }
