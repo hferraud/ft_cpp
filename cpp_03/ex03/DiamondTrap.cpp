@@ -14,26 +14,25 @@
 
 DiamondTrap::DiamondTrap() : ClapTrap()
 {
+	ScavTrap scav;
+
 	name = "anonymous";
-	ClapTrap::name = "anonymous_clap_name";
-	hitPoints = FragTrap::hitPoints;
-	energyPoints = ScavTrap::energyPoints;
-	attackDamage = FragTrap::attackDamage;
+	energyPoints = scav.getEnergyPoints();
 	std::cout << "An anonymous DiamondTrap appeared" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name)
 {
-	this->name = name;
-	ClapTrap::name = name.append("_clap_name");
-	hitPoints = FragTrap::hitPoints;
-	energyPoints = ScavTrap::energyPoints;
-	attackDamage = FragTrap::attackDamage;
+	ScavTrap scav;
+
+	this->name = name.append("_clap_name");
+	energyPoints = scav.getEnergyPoints();
 	std::cout << "DiamondTrap " << this->name << " appeared" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap& other) : ClapTrap(other), ScavTrap(other), FragTrap(other)
 {
+	this->name = other.getName().append("_clap_name");
 	std::cout << "DiamondTrap cloned from " << other.getName() << std::endl;
 }
 
@@ -52,18 +51,7 @@ DiamondTrap& DiamondTrap::operator=(DiamondTrap& other)
 	return (*this);
 }
 
-void DiamondTrap::attack(std::string &target)
-{
-	ClapTrap::attack(target);
-}
-
-void DiamondTrap::attack(ClapTrap& target)
-{
-	ClapTrap::attack(target);
-}
-
-void DiamondTrap::guardGate(void)
-{
-	std::cout << "DiamondTrap " << this->name;
-	std::cout << " is now in Gate keeper mode" << std::endl;
+void DiamondTrap::whoAmI() {
+	std::cout << "Diamond name: " << name << std::endl;
+	std::cout << "Clap name: " << ClapTrap::name << std::endl;
 }

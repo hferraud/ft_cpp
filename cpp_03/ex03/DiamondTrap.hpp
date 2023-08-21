@@ -28,9 +28,9 @@ public:
 
 	DiamondTrap& operator=(DiamondTrap& other);
 
-	void attack(std::string &target);
-	void attack(ClapTrap &target);
-	void guardGate(void);
+	using ScavTrap::attack;
+
+	void whoAmI(void);
 };
 
 
