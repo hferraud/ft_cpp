@@ -24,15 +24,25 @@ int main()
 	ICharacter* me = new Character("me");
 
 	AMateria* tmp;
+	AMateria* tmp2;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
+	tmp2 = tmp;
+	me->equip(tmp);
+	tmp = src->createMateria("test");
 	me->equip(tmp);
 
 	ICharacter* bob = new Character("bob");
 
 	me->use(0, *bob);
 	me->use(1, *bob);
+	me->use(2, *bob);
+	me->use(3, *bob);
+	me->use(4, *bob);
+	me->unequip(1);
+	me->use(1, *bob);
+	delete tmp2;
 	delete bob;
 	delete me;
 	delete src;

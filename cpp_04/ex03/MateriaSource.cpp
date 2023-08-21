@@ -19,11 +19,11 @@ MateriaSource::MateriaSource()
 
 MateriaSource::MateriaSource(MateriaSource const& other)
 {
+	if (this == &other)
+		return;
 	for (int i = 0; i < 4; i++)
-	{
-		if (_source[i] != NULL)
-			_source[i] = other._source[i]->clone();
-	}
+		_source[i] = NULL;
+	*this = other;
 }
 
 MateriaSource::~MateriaSource()
@@ -39,10 +39,11 @@ MateriaSource& MateriaSource::operator=(MateriaSource const& other)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (_source[i] != NULL)
-			delete (_source[i]);
-		else
+		delete (_source[i]);
+		if (other._source[i] != NULL)
 			_source[i] = other._source[i]->clone();
+		else
+			_source[i] = NULL;
 	}
 	return (*this);
 }
@@ -69,10 +70,10 @@ AMateria* MateriaSource::createMateria(const std::string& type)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (_source[i]->getType() == type)
-			return (_source[i]->clone());
 		if (_source[i] == NULL)
 			return (NULL);
+		if (_source[i]->getType() == type)
+			return (_source[i]->clone());
 	}
 	return (NULL);
 }

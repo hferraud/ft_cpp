@@ -30,12 +30,11 @@ Character::Character(std::string name)
 
 Character::Character(Character const& other)
 {
-	_name = other.getName();
+	if (this == &other)
+		return;
 	for (int i = 0; i < 4; i++)
-	{
-		if (other._inventory[i] != NULL)
-			_inventory[i] = other._inventory[i]->clone();
-	}
+		_inventory[i] = NULL;
+	*this = other;
 }
 
 Character::~Character()
@@ -49,13 +48,16 @@ Character::~Character()
 
 Character& Character::operator=(Character const& other)
 {
+	if (this == &other)
+		return (*this);
 	_name = other.getName();
 	for (int i = 0; i < 4; i++)
 	{
-		if (_inventory[i] != NULL)
-			delete (_inventory[i]);
-		 if (other._inventory[i] != NULL)
+		delete (_inventory[i]);
+		if (other._inventory[i] != NULL)
 			_inventory[i] = other._inventory[i]->clone();
+		else
+			_inventory[i] = NULL;
 	}
 	return (*this);
 }
@@ -79,12 +81,16 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
+	if (idx >= 4)
+		return;
 	if (_inventory[idx] != NULL)
 		_inventory[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter& target)
 {
+	if (idx >= 4)
+		return;
 	if (_inventory[idx] == NULL)
 		return;
 	_inventory[idx]->use(target);
