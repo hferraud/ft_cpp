@@ -14,13 +14,11 @@
 #include "Cat.hpp"
 #include <iostream>
 
-#define SIZE 10
+#define SIZE 5
 
 int main(void) {
 	const Animal* dog = new Dog();
 	const Animal* cat = new Cat();
-	Dog* machin = new Dog();
-	Dog truc = *machin;
 
 	std::cout << std::endl;
 	std::cout << "OMG look at this " << dog->getType() << std::endl;
@@ -28,6 +26,7 @@ int main(void) {
 	std::cout << "OMG look at this " << cat->getType() << std::endl;
 	cat->makeSound();
 	std::cout << std::endl;
+
 	((Cat*) cat)->getBrain()->setIdea("Sleep", 0);
 	const Cat copyCat = Cat(*(Cat*) cat);
 	((Cat*) cat)->getBrain()->setIdea("Eat", 0);
@@ -39,6 +38,7 @@ int main(void) {
 	delete dog;
 	delete cat;
 	std::cout << std::endl;
+
 	const Animal* zoo[SIZE];
 	for (int i = 0; i < SIZE; i++)
 	{

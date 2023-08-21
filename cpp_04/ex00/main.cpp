@@ -38,4 +38,6 @@ int main(void)
 	delete rat;
 	delete dog;
 	delete cat;
+	delete wAnimal;
+	delete wCat;
 }

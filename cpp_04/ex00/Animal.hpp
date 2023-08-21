@@ -21,10 +21,10 @@ protected:
 
 public:
 	Animal();
-	Animal(Animal& other);
+	Animal(Animal const & other);
 	virtual ~Animal();
 
-	Animal& operator=(Animal& other);
+	Animal& operator=(Animal const & other);
 
 	void setType(std::string const name);
 	std::string getType(void) const;

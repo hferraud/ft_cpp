@@ -22,10 +22,10 @@ private:
 
 public:
 	Cat();
-	Cat(const Cat& other);
+	Cat(Cat const & other);
 	~Cat();
 
-	Cat& operator=(const Cat& other);
+	Cat& operator=(Cat const & other);
 
 	Brain* getBrain(void) const;
 

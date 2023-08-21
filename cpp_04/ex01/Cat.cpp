@@ -14,28 +14,34 @@
 
 Cat::Cat() : Animal()
 {
+	std::cout << "Cat default constructor" << std::endl;
 	this->setType("Cat");
 	_brain = new Brain();
-	std::cout << "Cat default constructor" << std::endl;
 }
 
-Cat::Cat(const Cat& other) : Animal(other)
+Cat::Cat(Cat const & other) : Animal(other)
 {
-	_brain = new Brain(*other.getBrain());
 	std::cout << "Cat copy constructor" << std::endl;
+	if (this == &other)
+		return;
+	_brain = NULL;
+	*this = other;
 }
 
 Cat::~Cat()
 {
-	delete (_brain);
 	std::cout << "Cat destructor" << std::endl;
+	delete (_brain);
 }
 
-Cat& Cat::operator=(const Cat& other)
+Cat& Cat::operator=(Cat const & other)
 {
-	this->setType(other.getType());
-	_brain = new Brain(*other.getBrain());
 	std::cout << "Cat copy operator" << std::endl;
+	if (this == &other)
+		return (*this);
+	delete (_brain);
+	_brain = new Brain(*other._brain);
+	this->setType(other.getType());
 	return (*this);
 }
 

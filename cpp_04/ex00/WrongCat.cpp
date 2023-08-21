@@ -20,7 +20,7 @@ WrongCat::~WrongCat() {}
 
 WrongCat& WrongCat::operator=(WrongCat& other) {(void)other; return (*this);}
 
-void WrongCat::makeSound()
+void WrongCat::makeSound() const
 {
 	std::cout << "WRONG MIAOU" << std::endl;
 }

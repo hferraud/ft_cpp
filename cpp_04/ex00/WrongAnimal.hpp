@@ -17,7 +17,7 @@ class WrongAnimal {
 public:
 	WrongAnimal();
 	WrongAnimal(WrongAnimal& other);
-	~WrongAnimal();
+	virtual ~WrongAnimal();
 
 	WrongAnimal& operator=(WrongAnimal& other);
 

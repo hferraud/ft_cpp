@@ -14,30 +14,34 @@
 
 Dog::Dog() : Animal()
 {
+	std::cout << "Dog default constructor" << std::endl;
 	this->setType("Dog");
 	_brain = new Brain();
-	std::cout << "Dog default constructor" << std::endl;
 }
 
-Dog::Dog(const Dog& other) : Animal(other)
+Dog::Dog(Dog const & other) : Animal(other)
 {
+	std::cout << "Dog copy constructor" << std::endl;
+	if (this == &other)
+		return;
 	_brain = NULL;
 	*this = other;
-	std::cout << "Dog copy constructor" << std::endl;
 }
 
 Dog::~Dog()
 {
-	delete (_brain);
 	std::cout << "Dog destructor" << std::endl;
+	delete (_brain);
 }
 
-Dog& Dog::operator=(const Dog& other)
+Dog& Dog::operator=(Dog const & other)
 {
+	std::cout << "Dog copy operator" << std::endl;
+	if (this == &other)
+		return (*this);
 	delete (_brain);
 	_brain = new Brain(*other._brain);
 	this->setType(other.getType());
-	std::cout << "Dog copy operator" << std::endl;
 	return (*this);
 }
 

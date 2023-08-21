@@ -12,8 +12,8 @@
 #ifndef FT_CPP_ANIMAL_HPP
 #define FT_CPP_ANIMAL_HPP
 
-#include "Brain.hpp"
 #include <string>
+#include "Brain.hpp"
 
 class Animal {
 
@@ -22,10 +22,10 @@ protected:
 
 public:
 	Animal();
-	Animal(const Animal& other);
+	Animal(Animal const & other);
 	virtual ~Animal();
 
-	Animal& operator=(const Animal& other);
+	Animal& operator=(Animal const & other);
 
 	void setType(std::string const name);
 	std::string getType(void) const;

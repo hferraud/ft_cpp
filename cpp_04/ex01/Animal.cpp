@@ -18,10 +18,10 @@ Animal::Animal()
 	std::cout << "Animal default constructor" << std::endl;
 }
 
-Animal::Animal(const Animal& other)
+Animal::Animal(Animal const & other)
 {
-	this->setType(other.getType());
 	std::cout << "Animal copy constructor" << std::endl;
+	*this = other;
 }
 
 Animal::~Animal()
@@ -29,10 +29,10 @@ Animal::~Animal()
 	std::cout << "Animal destructor" << std::endl;
 }
 
-Animal& Animal::operator=(const Animal& other)
+Animal& Animal::operator=(Animal const & other)
 {
-	this->setType(other.getType());
 	std::cout << "Animal copy operator" << std::endl;
+	this->setType(other.getType());
 	return (*this);
 }
 

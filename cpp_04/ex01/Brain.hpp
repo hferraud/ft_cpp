@@ -21,14 +21,14 @@ protected:
 
 public:
 	Brain();
-	Brain(Brain& other);
+	Brain(Brain const & other);
 	~Brain();
 
-	Brain& operator=(Brain& other);
+	Brain& operator=(Brain const & other);
 
-	std::string* getIdeas(void);
-	std::string getIdea(int index) const;
-	void setIdea(std::string idea, int index);
+	std::string const *	getIdeas(void) const;
+	std::string			getIdea(int index) const;
+	void				setIdea(std::string idea, int index);
 };
 
 

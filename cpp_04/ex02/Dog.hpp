@@ -22,10 +22,10 @@ private:
 
 public:
 	Dog();
-	Dog(const Dog& other);
+	Dog(Dog const & other);
 	~Dog();
 
-	Dog& operator=(const Dog& other);
+	Dog& operator=(Dog const & other);
 
 	Brain* getBrain(void) const;
 
