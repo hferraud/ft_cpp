@@ -6,7 +6,7 @@
 /*   By: hferraud <hferraud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:37:00 by hferraud          #+#    #+#             */
-/*   Updated: 2023/06/24 16:37:00 by hferraud         ###   ########lyon.fr   */
+/*   Updated: 2023/11/08 18:35:33 by hferraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ScalarConverter.hpp"
@@ -75,7 +75,6 @@ void ScalarConverter::convert2(std::string literal) {
 	double	val;
 
 	val = std::strtod(literal.c_str(), NULL);
-	std::cout << "Val: " << val << std::endl;
 	displayChar(val);
 	displayInt(val);
 	displayFloat(val);
