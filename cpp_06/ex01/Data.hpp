@@ -18,28 +18,14 @@ private:
 	int _value;
 
 public:
-	Data() {
-		_value = 0;
-	}
+	Data();
+	Data(int value);
+	Data(Data const &other);
+	~Data();
 
-	Data(int value) {
-		_value = value;
-	}
+	Data& operator=(Data const &other);
 
-	Data(Data const &other) {
-		*this = other;
-	}
-
-	~Data() {}
-
-	Data &operator=(Data const &other) {
-		_value = other._value;
-		return (*this);
-	}
-
-	int getValue(void) {
-		return (_value);
-	}
+	int getValue(void);
 };
 
 #endif

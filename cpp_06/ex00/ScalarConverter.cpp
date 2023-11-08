@@ -11,7 +11,11 @@
 /* ************************************************************************** */
 #include "ScalarConverter.hpp"
 #include <iostream>
+#include <float.h>
+#include <limits>
+#include <cstdlib>
 #include <iomanip>
+#include <math.h>
 
 ScalarConverter::ScalarConverter() {}
 
@@ -26,6 +30,58 @@ ScalarConverter &ScalarConverter::operator=(ScalarConverter const &other) {
 	return (*this);
 }
 
+void ScalarConverter::displayChar(double val) {
+	char 	charVal;
+
+	charVal = static_cast<char>(val);
+	std::cout << "Char: ";
+	if (val < std::numeric_limits<char>::min() || val > std::numeric_limits<char>::max()
+			|| isnan(val))
+		std::cout << "impossible";
+	else if (!isprint(charVal))
+		std::cout << "Non displayable";
+	else
+		std::cout << charVal;
+	std::cout << std::endl;
+}
+
+void ScalarConverter::displayInt(double val) {
+	int 	intVal;
+
+	intVal = static_cast<int>(val);
+	std::cout << "Int: ";
+	if (val < std::numeric_limits<int>::min() || val > std::numeric_limits<int>::max()
+			|| isnan(val))
+		std::cout << "impossible";
+	else
+		std::cout << intVal;
+	std::cout << std::endl;
+}
+
+void ScalarConverter::displayFloat(double val) {
+	float	floatVal;
+
+	floatVal = static_cast<float>(val);
+	std::cout << "Float: ";
+	std::cout << floatVal << 'f';
+	std::cout << std::endl;
+}
+
+void ScalarConverter::displayDouble(double val) {
+	std::cout << "Double: " << val << std::endl;
+}
+
+void ScalarConverter::convert2(std::string literal) {
+	double	val;
+
+	val = std::strtod(literal.c_str(), NULL);
+	std::cout << "Val: " << val << std::endl;
+	displayChar(val);
+	displayInt(val);
+	displayFloat(val);
+	displayDouble(val);
+}
+
 void ScalarConverter::convert(std::string literal) {
 	char	charLiteral;
 	int		intLiteral;
@@ -34,7 +90,7 @@ void ScalarConverter::convert(std::string literal) {
 
 	std::cout << "char: ";
 	try {
-		charLiteral = std::stoi(literal);
+		charLiteral = std::atoi(literal.c_str());
 		if (std::isprint(charLiteral))
 			std::cout << static_cast<char>(charLiteral) << "\n";
 		else
@@ -45,7 +101,7 @@ void ScalarConverter::convert(std::string literal) {
 	}
 	std::cout << "int: ";
 	try {
-		intLiteral = std::stoi(literal);
+		intLiteral = std::atoi(literal.c_str());
 		std::cout << static_cast<int>(intLiteral) << "\n";
 	}
 	catch (std::exception& e) {
@@ -53,15 +109,15 @@ void ScalarConverter::convert(std::string literal) {
 	}
 	std::cout << "float: ";
 	try {
-		floatLiteral = std::stof(literal);
-		std::cout << std::setprecision(2) << static_cast<float>(floatLiteral) << "f\n";
+		floatLiteral = std::atof(literal.c_str());
+		std::cout << std::setprecision(2) << (floatLiteral) << "f\n";
 	}
 	catch (std::exception& e) {
 		std::cout << "impossible\n";
 	}
 	std::cout << "double: ";
 	try {
-		doubleLiteral = std::stod(literal);
+		doubleLiteral = std::atof(literal.c_str());
 		std::cout << std::setprecision(2) << static_cast<double>(doubleLiteral) << "\n";
 	}
 	catch (std::exception& e) {

@@ -16,6 +16,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <iostream>
+#include <stdint.h>
 
 static Base* generate(void);
 static void identify(Base* b);
@@ -24,6 +25,7 @@ static void identify(Base& b);
 int main (void) {
 	Base* basePtr;
 
+	srand(time(NULL));
 	for (int i = 0; i < 10; i++)
 	{
 		basePtr = generate();
@@ -36,9 +38,9 @@ int main (void) {
 }
 
 static Base* generate(void) {
-	uint32_t randomNumber;
+	int randomNumber;
 
-	randomNumber = arc4random();
+	randomNumber = rand();
 	randomNumber %= 3;
 	if (randomNumber == 0)
 	{

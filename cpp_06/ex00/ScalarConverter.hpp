@@ -20,12 +20,18 @@ private:
 	ScalarConverter();
 	ScalarConverter(ScalarConverter const &other);
 
+	static void displayChar(double val);
+	static void displayInt(double val);
+	static void displayFloat(double val);
+	static void displayDouble(double val);
+
 public:
 	~ScalarConverter();
 
 	ScalarConverter &operator=(ScalarConverter const &other);
 
 	static void convert(std::string literal);
+	static void convert2(std::string literal);
 };
 
 #endif
