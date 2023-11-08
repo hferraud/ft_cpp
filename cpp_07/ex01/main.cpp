@@ -11,14 +11,15 @@
 /* ************************************************************************** */
 #include "iter.hpp"
 #include <string>
+#include <algorithm>
 
 template <typename T>
-void add(T& n) {
+void f(T& n) {
 	n++;
 }
 
 template <>
-void add<std::string>(std::string& n) {
+void f<std::string>(std::string& n) {
 	std::reverse(n.begin(), n.end());
 }
 
@@ -36,18 +37,18 @@ int main(void) {
 	std::cout << "With int\n";
 	printArr(intArr);
 	std::cout << "Iter\n";
-	iter(intArr, 3, add);
+	iter(intArr, 3, f);
 	printArr(intArr);
 
 	std::cout << "With float\n";
 	printArr(floatArr);
 	std::cout << "Iter\n";
-	iter(floatArr, 3, add);
+	iter(floatArr, 3, f);
 	printArr(floatArr);
 
 	std::cout << "With strings\n";
 	printArr(stringArr);
 	std::cout << "Iter\n";
-	iter(stringArr, 3, add);
+	iter(stringArr, 3, f);
 	printArr(stringArr);
 }

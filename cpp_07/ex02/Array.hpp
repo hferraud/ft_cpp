@@ -20,7 +20,7 @@ template <typename T>
 class Array {
 
 private:
-	T		*_array;
+	T*		_array;
 	size_t	_size;
 
 public:

@@ -51,11 +51,5 @@ int main(void) {
 			std::cerr << "you're trying to access unallocated memory" << std::endl;
 		}
 	}
-	{
-		Array<int> myArray(5);
-		Array<int> secondArray = myArray;
-
-		myArray[0] = 1;
-	}
 	return (0);
 }
