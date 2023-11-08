@@ -38,9 +38,11 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 
 void ShrubberyCreationForm::process()
 {
-	std::ofstream file;
+	std::ofstream	file;
+	std::string		filename;
 
-	file.open(_target + "_shrubbery");
+	filename = _target + std::string("_shrubbery");
+	file.open(filename.c_str());
 	file << "      /\\      \n";
 	file <<	"     /\\*\\     \n";
 	file <<	"    /\\O\\*\\    \n";

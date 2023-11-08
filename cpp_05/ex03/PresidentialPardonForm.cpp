@@ -21,7 +21,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Pres
 	_target = target;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &other)
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &other) : AForm(other.getName(), 25, 5)
 {
 	*this = other;
 }

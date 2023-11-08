@@ -24,7 +24,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("Robot", 72
 	_target = target;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & other)
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & other) : AForm(other.getName(), 72, 45)
 {
 	*this = other;
 }

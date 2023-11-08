@@ -32,13 +32,14 @@ int main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	Bureaucrat bob("Bob", 39);
+	Bureaucrat bob("Bob", 41);
 	Form eval("Test", 40, 10);
 
 	std::cout << bob << eval;
 	bob.signForm(eval);
 	std::cout << eval;
 	bob.upgrade();
+	std::cout << bob << eval;
 	bob.signForm(eval);
 	std::cout << eval;
 }
