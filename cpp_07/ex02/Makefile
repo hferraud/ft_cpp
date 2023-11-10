@@ -26,6 +26,8 @@ DEPS		=		$(addprefix $(BUILD_DIR), $(SRC:.cpp=.d))
 
 CFLAGS		=		-Wall -Werror -Wextra -std=c++98
 
+CXX			=		c++
+
 IFLAGS		=		-I $(INC_DIR)
 
 DFLAGS		=		-MMD -MP
