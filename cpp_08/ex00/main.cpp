@@ -13,7 +13,6 @@
 #include <iostream>
 #include <list>
 #include <vector>
-#include <exception>
 
 template<typename T>
 void stlSearch(T const & container, int val);
@@ -50,11 +49,8 @@ int main(void) {
 template<typename T>
 void stlSearch(T const & container, int val) {
 	std::cout << "Searching " << val << '\n';
-	try {
-		::easyfind(container, val);
-		std::cout << "Found\n";
-	}
-	catch (std::exception const & e){
+	if (easyfind(container, val) == container.end())
 		std::cout << "Not found\n";
-	}
+	else
+		std::cout << "Found\n";
 }

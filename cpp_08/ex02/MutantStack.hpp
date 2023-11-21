@@ -18,18 +18,12 @@
 template <class Tp>
 class MutantStack : public std::stack<int>{
 
-
 public:
 	typedef typename std::deque<Tp>::iterator iterator;
 
 	MutantStack() : std::stack<Tp>() {}
 	MutantStack(MutantStack const &other) : std::stack<Tp>(other) {}
 	~MutantStack() {}
-
-//	MutantStack &operator=(MutantStack const &other) {
-//		*this = MutantStack<Tp>(other);
-//		return (*this);
-//	}
 
 	iterator begin(void) {
 		return (this->c.begin());

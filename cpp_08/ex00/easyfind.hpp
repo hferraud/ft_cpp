@@ -15,12 +15,8 @@
 #include <algorithm>
 
 template<typename T>
-int easyfind(T const & container, int toFind) {
-
-	if (std::find(container.begin(), container.end(), toFind) == container.end())
-		throw (std::exception());
-	else
-		return (toFind);
+typename T::const_iterator easyfind(T const & container, int toFind) {
+	return (std::find(container.begin(), container.end(), toFind));
 }
 
 #endif

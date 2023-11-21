@@ -43,9 +43,9 @@ void Span::addNumber(int const value) {
 
 int Span::longestSpan() {
 	if (_list.size() <= 1)
-		return (0);
+		throw (std::exception());
 	std::sort(_list.begin(), _list.end());
-	return (_list.at(_list.size() - 1) - _list.at(0));
+	return (*(_list.end() - 1) - *_list.begin());
 }
 
 int Span::shortestSpan() {
@@ -54,7 +54,7 @@ int Span::shortestSpan() {
 	int							currentSpan;
 
 	if (_list.size() <= 1)
-		return (0);
+		throw (std::exception());
 	std::sort(_list.begin(), _list.end());
 	span = -1;
 	for (i = _list.begin(); i != _list.end() - 1; i++)
@@ -68,15 +68,13 @@ int Span::shortestSpan() {
 	return (span);
 }
 
-void Span::fill(unsigned int start, unsigned int end, int range) {
-	if (start > end)
+void Span::fill(size_t first, size_t last, int range) {
+	if (first > last || last > _size)
 		throw (std::exception());
-	if (start > _size || end > _size)
-		throw (std::exception());
-	if (_list.size() < end)
-	_list.resize(end);
-	for (std::vector<int>::iterator i = _list.begin() + start; i != _list.begin() + end; i++)
-		*i = arc4random() % range;
+	if (_list.size() < last)
+		_list.resize(last);
+	for (std::vector<int>::iterator i = _list.begin() + first; i != _list.begin() + last; i++)
+		*i = rand() % range;
 }
 
 void Span::printSpan() {

@@ -13,6 +13,7 @@
 #define CPP_PISCINE_SPAN_HPP
 
 #include <vector>
+#include <stdlib.h>
 
 class Span {
 
@@ -31,7 +32,7 @@ public:
 	void addNumber(int const value);
 	int shortestSpan(void);
 	int longestSpan(void);
-	void fill(unsigned int start, unsigned int end, int range);
+	void fill(size_t first, size_t last, int range);
 	void printSpan();
 };
 
