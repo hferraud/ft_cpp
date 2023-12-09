@@ -14,8 +14,7 @@ BUILD_DIR	=		.build/
 #	FILES
 #######################
 
-SRC			=		main.cpp	\
-					PmergeMe.cpp	\
+SRC			=		main.cpp
 
 OBJ			=		$(addprefix $(BUILD_DIR), $(SRC:.cpp=.o))
 
