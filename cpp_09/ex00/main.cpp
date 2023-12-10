@@ -16,7 +16,7 @@
 int main(int argc, char **argv) {
 	if (argc != 2)
 	{
-		std::cerr << "Error: couldn't open file\n";
+		std::cerr << "Error: too few arguments\n";
 		return (1);
 	}
 	try {
@@ -25,7 +25,7 @@ int main(int argc, char **argv) {
 	}
 	catch (std::exception const & e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << "Error: " << e.what() << std::endl;
 		return (1);
 	}
 }

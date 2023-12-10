@@ -10,28 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef CPP_PISCINE_BITCOINEXCHANGE_HPP
-#define CPP_PISCINE_BITCOINEXCHANGE_HPP
+# define CPP_PISCINE_BITCOINEXCHANGE_HPP
 
-#include <map>
-#include <string>
+# include <map>
+# include <string>
+
+# define DATABASE_PATH "data.csv"
 
 class BitcoinExchange {
 
 private:
 	std::map<std::string, float> _btc_data;
 
-	void parseData(void);
-	void parseDataLine(std::string line);
-	void processLine(std::string line);
+	void parseDatabase();
+	void parseDatabaseLine(std::string& line);
+	void processLine(std::string const & line);
+	static void openDataFile(std::ifstream& file, std::string const & fileName) ;
+	static bool isValidInput(std::string& key, float value) ;
+	static bool isValidKey(std::string& key) ;
 
 public:
 	BitcoinExchange();
-	BitcoinExchange(BitcoinExchange const &other);
+	BitcoinExchange(BitcoinExchange const & other);
 	~BitcoinExchange();
 
-	BitcoinExchange &operator=(BitcoinExchange const &other);
+	BitcoinExchange& operator=(BitcoinExchange const & other);
 
-	void outputData(std::string fileName);
+	void outputData(std::string const & fileName);
 };
 
 #endif
