@@ -1,0 +1,220 @@
+cmake_minimum_required(VERSION 3.27)
+project(ft_cpp)
+
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(cpp_00/ex01)
+include_directories(cpp_00/ex02)
+include_directories(cpp_01/ex00)
+include_directories(cpp_01/ex01)
+include_directories(cpp_01/ex03)
+include_directories(cpp_01/ex05)
+include_directories(cpp_01/ex06)
+include_directories(cpp_02/ex00)
+include_directories(cpp_02/ex01)
+include_directories(cpp_02/ex02)
+include_directories(cpp_02/ex03)
+include_directories(cpp_03/ex00)
+include_directories(cpp_03/ex01)
+include_directories(cpp_03/ex02)
+include_directories(cpp_03/ex03)
+include_directories(cpp_04/ex00)
+include_directories(cpp_04/ex01)
+include_directories(cpp_04/ex02)
+include_directories(cpp_04/ex03)
+include_directories(cpp_05/ex00)
+include_directories(cpp_05/ex01)
+include_directories(cpp_05/ex02)
+include_directories(cpp_05/ex03)
+include_directories(cpp_06/ex00)
+include_directories(cpp_06/ex01)
+include_directories(cpp_06/ex02)
+include_directories(cpp_07/ex00)
+include_directories(cpp_07/ex01)
+include_directories(cpp_07/ex02)
+include_directories(cpp_08/ex00)
+include_directories(cpp_08/ex01)
+include_directories(cpp_08/ex02)
+include_directories(cpp_09/ex00)
+include_directories(cpp_09/ex02)
+
+add_executable(ft_cpp
+        cpp_00/ex00/megaphone.cpp
+        cpp_00/ex01/Contact.cpp
+        cpp_00/ex01/Contact.hpp
+        cpp_00/ex01/main.cpp
+        cpp_00/ex01/PhoneBook.cpp
+        cpp_00/ex01/PhoneBook.hpp
+        cpp_00/ex02/Account.cpp
+        cpp_00/ex02/Account.hpp
+        cpp_00/ex02/tests.cpp
+        cpp_01/ex00/main.cpp
+        cpp_01/ex00/newZombie.cpp
+        cpp_01/ex00/randomChump.cpp
+        cpp_01/ex00/Zombie.cpp
+        cpp_01/ex00/Zombie.hpp
+        cpp_01/ex01/main.cpp
+        cpp_01/ex01/Zombie.cpp
+        cpp_01/ex01/Zombie.hpp
+        cpp_01/ex01/zombieHorde.cpp
+        cpp_01/ex02/main.cpp
+        cpp_01/ex03/HumanA.cpp
+        cpp_01/ex03/HumanA.hpp
+        cpp_01/ex03/HumanB.cpp
+        cpp_01/ex03/HumanB.hpp
+        cpp_01/ex03/main.cpp
+        cpp_01/ex03/Weapon.cpp
+        cpp_01/ex03/Weapon.hpp
+        cpp_01/ex04/main.cpp
+        cpp_01/ex05/Harl.cpp
+        cpp_01/ex05/Harl.hpp
+        cpp_01/ex05/main.cpp
+        cpp_01/ex06/Harl.cpp
+        cpp_01/ex06/Harl.hpp
+        cpp_01/ex06/main.cpp
+        cpp_02/ex00/Fixed.cpp
+        cpp_02/ex00/Fixed.hpp
+        cpp_02/ex00/main.cpp
+        cpp_02/ex01/Fixed.cpp
+        cpp_02/ex01/Fixed.hpp
+        cpp_02/ex01/main.cpp
+        cpp_02/ex02/Fixed.cpp
+        cpp_02/ex02/Fixed.hpp
+        cpp_02/ex02/main.cpp
+        cpp_02/ex03/bsp.cpp
+        cpp_02/ex03/Fixed.cpp
+        cpp_02/ex03/Fixed.hpp
+        cpp_02/ex03/main.cpp
+        cpp_02/ex03/Point.cpp
+        cpp_02/ex03/Point.hpp
+        cpp_03/ex00/ClapTrap.cpp
+        cpp_03/ex00/ClapTrap.hpp
+        cpp_03/ex00/main.cpp
+        cpp_03/ex01/ClapTrap.cpp
+        cpp_03/ex01/ClapTrap.hpp
+        cpp_03/ex01/main.cpp
+        cpp_03/ex01/ScavTrap.cpp
+        cpp_03/ex01/ScavTrap.hpp
+        cpp_03/ex02/ClapTrap.cpp
+        cpp_03/ex02/ClapTrap.hpp
+        cpp_03/ex02/FragTrap.cpp
+        cpp_03/ex02/FragTrap.hpp
+        cpp_03/ex02/main.cpp
+        cpp_03/ex02/ScavTrap.cpp
+        cpp_03/ex02/ScavTrap.hpp
+        cpp_03/ex03/ClapTrap.cpp
+        cpp_03/ex03/ClapTrap.hpp
+        cpp_03/ex03/DiamondTrap.cpp
+        cpp_03/ex03/DiamondTrap.hpp
+        cpp_03/ex03/FragTrap.cpp
+        cpp_03/ex03/FragTrap.hpp
+        cpp_03/ex03/main.cpp
+        cpp_03/ex03/ScavTrap.cpp
+        cpp_03/ex03/ScavTrap.hpp
+        cpp_04/ex00/Animal.cpp
+        cpp_04/ex00/Animal.hpp
+        cpp_04/ex00/Cat.cpp
+        cpp_04/ex00/Cat.hpp
+        cpp_04/ex00/Dog.cpp
+        cpp_04/ex00/Dog.hpp
+        cpp_04/ex00/main.cpp
+        cpp_04/ex00/WrongAnimal.cpp
+        cpp_04/ex00/WrongAnimal.hpp
+        cpp_04/ex00/WrongCat.cpp
+        cpp_04/ex00/WrongCat.hpp
+        cpp_04/ex01/Animal.cpp
+        cpp_04/ex01/Animal.hpp
+        cpp_04/ex01/Brain.cpp
+        cpp_04/ex01/Brain.hpp
+        cpp_04/ex01/Cat.cpp
+        cpp_04/ex01/Cat.hpp
+        cpp_04/ex01/Dog.cpp
+        cpp_04/ex01/Dog.hpp
+        cpp_04/ex01/main.cpp
+        cpp_04/ex02/Animal.cpp
+        cpp_04/ex02/Animal.hpp
+        cpp_04/ex02/Brain.cpp
+        cpp_04/ex02/Brain.hpp
+        cpp_04/ex02/Cat.cpp
+        cpp_04/ex02/Cat.hpp
+        cpp_04/ex02/Dog.cpp
+        cpp_04/ex02/Dog.hpp
+        cpp_04/ex02/main.cpp
+        cpp_04/ex03/AMateria.cpp
+        cpp_04/ex03/AMateria.hpp
+        cpp_04/ex03/Character.cpp
+        cpp_04/ex03/Character.hpp
+        cpp_04/ex03/Cure.cpp
+        cpp_04/ex03/Cure.hpp
+        cpp_04/ex03/Ice.cpp
+        cpp_04/ex03/Ice.hpp
+        cpp_04/ex03/ICharacter.hpp
+        cpp_04/ex03/IMateriaSource.hpp
+        cpp_04/ex03/main.cpp
+        cpp_04/ex03/MateriaSource.cpp
+        cpp_04/ex03/MateriaSource.hpp
+        cpp_05/ex00/Bureaucrat.cpp
+        cpp_05/ex00/Bureaucrat.hpp
+        cpp_05/ex00/main.cpp
+        cpp_05/ex01/Bureaucrat.cpp
+        cpp_05/ex01/Bureaucrat.hpp
+        cpp_05/ex01/Form.cpp
+        cpp_05/ex01/Form.hpp
+        cpp_05/ex01/main.cpp
+        cpp_05/ex02/AForm.cpp
+        cpp_05/ex02/AForm.hpp
+        cpp_05/ex02/Bureaucrat.cpp
+        cpp_05/ex02/Bureaucrat.hpp
+        cpp_05/ex02/main.cpp
+        cpp_05/ex02/PresidentialPardonForm.cpp
+        cpp_05/ex02/PresidentialPardonForm.hpp
+        cpp_05/ex02/RobotomyRequestForm.cpp
+        cpp_05/ex02/RobotomyRequestForm.hpp
+        cpp_05/ex02/ShrubberyCreationForm.cpp
+        cpp_05/ex02/ShrubberyCreationForm.hpp
+        cpp_05/ex03/AForm.cpp
+        cpp_05/ex03/AForm.hpp
+        cpp_05/ex03/Bureaucrat.cpp
+        cpp_05/ex03/Bureaucrat.hpp
+        cpp_05/ex03/Intern.cpp
+        cpp_05/ex03/Intern.hpp
+        cpp_05/ex03/main.cpp
+        cpp_05/ex03/PresidentialPardonForm.cpp
+        cpp_05/ex03/PresidentialPardonForm.hpp
+        cpp_05/ex03/RobotomyRequestForm.cpp
+        cpp_05/ex03/RobotomyRequestForm.hpp
+        cpp_05/ex03/ShrubberyCreationForm.cpp
+        cpp_05/ex03/ShrubberyCreationForm.hpp
+        cpp_06/ex00/main.cpp
+        cpp_06/ex00/ScalarConverter.cpp
+        cpp_06/ex00/ScalarConverter.hpp
+        cpp_06/ex01/Data.cpp
+        cpp_06/ex01/Data.hpp
+        cpp_06/ex01/main.cpp
+        cpp_06/ex01/Serializer.cpp
+        cpp_06/ex01/Serializer.hpp
+        cpp_06/ex02/A.hpp
+        cpp_06/ex02/B.hpp
+        cpp_06/ex02/Base.hpp
+        cpp_06/ex02/C.hpp
+        cpp_06/ex02/main.cpp
+        cpp_07/ex00/main.cpp
+        cpp_07/ex00/whatever.hpp
+        cpp_07/ex01/iter.hpp
+        cpp_07/ex01/main.cpp
+        cpp_07/ex02/Array.hpp
+        cpp_07/ex02/main.cpp
+        cpp_08/ex00/easyfind.hpp
+        cpp_08/ex00/main.cpp
+        cpp_08/ex01/main.cpp
+        cpp_08/ex01/Span.cpp
+        cpp_08/ex01/Span.hpp
+        cpp_08/ex02/main.cpp
+        cpp_08/ex02/MutantStack.hpp
+        cpp_09/ex00/BitcoinExchange.cpp
+        cpp_09/ex00/BitcoinExchange.hpp
+        cpp_09/ex00/main.cpp
+        cpp_09/ex01/main.cpp
+        cpp_09/ex01/RPN.cpp
+        cpp_09/ex02/main.cpp
+        cpp_09/ex02/PmergeMe.hpp)
