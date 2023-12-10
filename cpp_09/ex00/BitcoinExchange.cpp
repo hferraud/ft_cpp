@@ -13,7 +13,7 @@
 #include <fstream>
 #include <iostream>
 #include <cstdlib>
-
+#include <sys/stat.h>
 
 BitcoinExchange::BitcoinExchange() {
 	parseDatabase();
@@ -41,6 +41,7 @@ void BitcoinExchange::outputData(std::string const & fileName) {
 		processLine(line);
 		std::getline(file, line);
 	}
+	file.close();
 }
 
 void BitcoinExchange::processLine(std::string const & line) {
@@ -71,7 +72,7 @@ void BitcoinExchange::processLine(std::string const & line) {
 	std::cout << btc_data->second * value << '\n';
 }
 
-bool BitcoinExchange::isValidInput(std::string &key, float value) {
+bool BitcoinExchange::isValidInput(std::string const & key, float value) {
 	if (value < 0) {
 		std::cerr << "Error: not a positive number" << std::endl;
 		return (false);
@@ -87,7 +88,7 @@ bool BitcoinExchange::isValidInput(std::string &key, float value) {
 	return (true);
 }
 
-bool BitcoinExchange::isValidKey(std::string& key) {
+bool BitcoinExchange::isValidKey(std::string const & key) {
 	for (int i = 0; i < 4; i++)
 		if (key[i] == '\0' || !isdigit(key[i]))
 			return (false);
@@ -115,9 +116,10 @@ void BitcoinExchange::parseDatabase() {
 		parseDatabaseLine(line);
 		std::getline(file, line);
 	}
+	file.close();
 }
 
-void BitcoinExchange::parseDatabaseLine(std::string& line) {
+void BitcoinExchange::parseDatabaseLine(std::string const & line) {
 	size_t		separatorPos;
 	std::string	key;
 	float		value;
@@ -138,8 +140,20 @@ void BitcoinExchange::parseDatabaseLine(std::string& line) {
 void BitcoinExchange::openDataFile(std::ifstream& file, std::string const & fileName) {
 	std::string		line;
 
+	if (isDir(fileName)) {
+		throw (std::runtime_error(fileName + " is a directory"));
+	}
 	file.open(fileName.c_str());
 	if (!file.is_open())
 		throw (std::runtime_error("could not open file: " + fileName));
 	std::getline(file, line);
+}
+
+bool BitcoinExchange::isDir(std::string const & dir) {
+	struct stat st;
+
+	if (stat(dir.c_str(), &st) == 0) {
+		return S_ISDIR(st.st_mode);
+	}
+	return false;
 }

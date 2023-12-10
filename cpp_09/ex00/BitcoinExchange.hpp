@@ -23,11 +23,12 @@ private:
 	std::map<std::string, float> _btc_data;
 
 	void parseDatabase();
-	void parseDatabaseLine(std::string& line);
+	void parseDatabaseLine(std::string const & line);
 	void processLine(std::string const & line);
 	static void openDataFile(std::ifstream& file, std::string const & fileName) ;
-	static bool isValidInput(std::string& key, float value) ;
-	static bool isValidKey(std::string& key) ;
+	static bool isValidInput(std::string const & key, float value) ;
+	static bool isValidKey(std::string const & key) ;
+	static bool isDir(std::string const & dir);
 
 public:
 	BitcoinExchange();
