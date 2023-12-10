@@ -12,6 +12,7 @@
 #include <string>
 #include <stack>
 #include <exception>
+#include <cstdlib>
 
 static void rpnOperate(std::stack<double>& stack, std::string::iterator& iterator);
 static void rpnPush(std::stack<double>& stack, std::string::iterator& iterator);
@@ -33,7 +34,7 @@ double rpnProcess(std::string expression) {
 		else if (iterator != expression.end())
 			throw (std::exception());
 	}
-	if (stack.size() > 1)
+	if (stack.size() != 1)
 		throw (std::exception());
 	return (stack.top());
 }
