@@ -20,11 +20,17 @@ int main(int argc, char **argv) {
 	try {
 		std::vector<int>	vector;
 		std::deque<int>		list;
-		double				vector_time;
-		double				list_time;
+		long				vector_time;
+		long				list_time;
 
-		vector_time = PmergeMe(argc, argv, vector);
-		list_time = PmergeMe(argc, argv, list);
+		parseArgs(argc, argv, vector);
+		std::cout << "Before:\t";
+		displayContainer(vector);
+		vector_time = PmergeMe(vector);
+		std::cout << "After:\t";
+		displayContainer(vector);
+		parseArgs(argc, argv, list);
+		list_time = PmergeMe(list);
 		std::cout << "Time to sort with std::vector:\t"<< vector_time << " us" << std::endl;
 		std::cout << "Time to sort with std::list:\t"<< list_time << " us" << std::endl;
 	}

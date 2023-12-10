@@ -30,18 +30,13 @@ template <typename T>
 void displayContainer(T& container);
 
 template <typename T>
-double PmergeMe(int argc, char** argv, T& container) {
+long PmergeMe(T& container) {
 	struct timeval		start_time;
 	struct timeval		end_time;
 
-	parseArgs(argc, argv, container);
-	std::cout << "Before:\t";
-	displayContainer(container);
 	gettimeofday(&start_time, NULL);
 	mergeInsertSort(container);
 	gettimeofday(&end_time, NULL);
-	std::cout << "After:\t";
-	displayContainer(container);
 	return ((end_time.tv_sec - start_time.tv_sec) * 1000000
 			+ (end_time.tv_usec - start_time.tv_usec));
 }
